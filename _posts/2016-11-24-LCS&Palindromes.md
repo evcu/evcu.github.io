@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Palindromes and Longest Common Subsequence"
-category: python
+category: python teg2
 excerpt: "Longest palindromes can be found with LCS on the string with its reverse"
 ---
 

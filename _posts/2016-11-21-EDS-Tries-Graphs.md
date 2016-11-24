@@ -131,7 +131,8 @@ class Graph:
 ```
 
 Lets define the following graph
-![title](graph.png)
+
+![graph](/assets/images/graph.png)
 
 
 ```python
