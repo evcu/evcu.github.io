@@ -1,0 +1,11 @@
+---
+layout: archive
+permalink: /tags/
+title: "Posts by Tags"
+author_profile: true
+---
+ {% for post in site.posts %}
+   {% if post.tag contains 'python' %}
+    {% include archive-single.html %}
+   {% endif %}
+{% endfor %}

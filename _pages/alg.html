@@ -1,0 +1,12 @@
+---
+layout: archive
+permalink: /alg/
+title: "Posts with Algorithms"
+author_profile: true
+---
+
+ {% for post in site.posts %}
+   {% if post.categories contains 'algorithms' %}
+    {% include archive-single.html %}
+   {% endif %}
+{% endfor %}
