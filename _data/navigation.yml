@@ -2,7 +2,6 @@
 main:
   - title: "Blogs"
     url: /blogs/
-  - title: "deneme"
-    url: http://mademistakes.com
-  - title: "Sitemap"
-    url: /sitemap/
+  - title: "Algorithms"
+    url: /alg/
+

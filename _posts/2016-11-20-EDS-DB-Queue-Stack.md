@@ -1,7 +1,8 @@
 ---
 layout: single
 title: "Stack and Queue Implementation with Doubly Linked List"
-category: python
+categories: algorithms
+tags: [python,datastructures]
 excerpt: "Python implementation of Doubly Linked List followed by Stack and Queue"
 ---
 

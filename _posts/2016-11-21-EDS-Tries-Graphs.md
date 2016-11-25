@@ -1,7 +1,8 @@
 ---
 layout: single
 title: "Trie and BFS & DFS implementation"
-category: python
+categories: algorithms
+tags: [python,graph,datastructures]
 excerpt: "I've implemented Trie and BFS/DFS with python"
 ---
 

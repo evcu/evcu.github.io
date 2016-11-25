@@ -1,7 +1,8 @@
 ---
 layout: single
 title: "Merge vs Insertion Sort"
-category: python
+categories: algorithms
+tags: [python,sorting]
 excerpt: "The algorithms class started with insertion sort and merge sort. Lets compare them"
 ---
 

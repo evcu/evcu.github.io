@@ -1,7 +1,8 @@
 ---
 layout: single
 title: "Palindromes and Longest Common Subsequence"
-category: python
+categories: algorithms
+tags: [python,graphs]
 excerpt: "Longest palindromes can be found with LCS on the string with its reverse"
 ---
 
