@@ -1,0 +1,12 @@
+---
+layout: archive
+permalink: /ml/
+title: "Posts with Algorithms"
+author_profile: true
+---
+
+ {% for post in site.posts %}
+   {% if post.categories contains 'ml' %}
+    {% include archive-single.html %}
+   {% endif %}
+{% endfor %}

@@ -4,4 +4,5 @@ main:
     url: /blogs/
   - title: "Algorithms"
     url: /alg/
-
+  - title: "Machine Learning"
+    url: /ml/
