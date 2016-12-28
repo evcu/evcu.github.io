@@ -47,7 +47,7 @@ conv1-fcc1-fcc3 | conv2-fcc2
 `w/o` flag represents accurcies without reatraining and the others lines represent results with different retraining epochs. For example `w/3` is retraining with 3 epochs. Even though the sampling frequency of the graphs make it sometimes hard to compare(I calculated the accurcies for 20 or 10 values of the pruning factor), one can clearly see that retraining of the model provides a significant margin at final compression rate achievable. Another important observation is (different then the paper) there is no significant variation between layers in terms of sensitivity. One last observation is 3 epoch seems enough for retraining the network. 
 
 ### Iterative Pruning vs One-Shot Pruning
-In this section I compare iterative pruning with one-shot pruning. In iterative pruning the network or layer is pruned in N steps to its target pruning rate $c \in [0,1]$, such that at each step $\frac{c}{N}$ of all parameters are pruned. Whereas in one-shot pruning $c$ fraction of parametes are pruned immediately. I performed the sensitivity tests(which are done in an iterative manner) in this context again with 3 epoch retraining after each iteration.
+In this section I compare iterative pruning with one-shot pruning. In iterative pruning the network or layer is pruned in N steps to its target pruning rate $$c \in [0,1]$$, such that at each step $$\frac{c}{N}$$ of all parameters are pruned. Whereas in one-shot pruning $$c$$ fraction of parametes are pruned immediately. I performed the sensitivity tests(which are done in an iterative manner) in this context again with 3 epoch retraining after each iteration.
 
 conv1-fcc1-fcc3 | conv2-fcc2  
 :-:|:-:
@@ -59,7 +59,7 @@ An interesting result is even though at some layers(first and last) it provides 
 
 ### Implementing various Pruning Functions 
 There are 2 main methods proposed in the literature as pruning metrics. 
-- Taylor series based approximations of $\delta E$: 
+- Taylor series based approximations of $$\delta E$$: 
     - Using 1st order approximation: `-pruner taylor1`
     - Using 2nd order diagonal approximation: `-pruner taylor2`
     - Combining these two `-pruner taylor12`
@@ -72,7 +72,7 @@ Once start implementing those functionalities, I encountered with some problems.
 
 Then I tried to implement `taylor2`, however Torch's experimental `hessian` module didn't worked out. I implemented straight forward `taylor1`, which is bascially gradWeight*weight and didn't get good results. At this point I decided to go with magnitude based default pruning. 
 
-Later I've also implemented emprical scoring of weights, where for each weight I measure the Error of the module when those weight is set to 0. The weights are pruned in decreasing order, since the weights with high Error would also have high $\delta E=E_{end}-E_{initial}$, since $E_{initial}$ is same for all weights. Since calculating those scores are a slow process, due to the evaluation on the test set, I've performed my experiment on the first convolutional layer `conv-1`, which has 150 parameters(without biases).
+Later I've also implemented emprical scoring of weights, where for each weight I measure the Error of the module when those weight is set to 0. The weights are pruned in decreasing order, since the weights with high Error would also have high $$\delta E=E_{end}-E_{initial}$$, since $$E_{initial}$$ is same for all weights. Since calculating those scores are a slow process, due to the evaluation on the test set, I've performed my experiment on the first convolutional layer `conv-1`, which has 150 parameters(without biases).
 
 ![conv1](/assets/images/network_pruning/plots/lenet5-MAGvsEMP.png)
 
@@ -89,7 +89,7 @@ Overall pruning rate is basically set by the layers who has the majority of the 
 
 First I did 40 iteration 1 epoch retraining pruning on the network without an accuracy-loss limit. I've got 0.99% error, which is 0.03% percent accuracy loss. The ratio of pruned parameters of all model is almost 92.9%. This number doesn't involve the bias terms, however total number of bias parameters shouldn't change this ratio significantly. I repeated same strategy for two accuracy-loss limit 0.5% and 1%. However the final result is below these thresholds I got same result as the first one. 
 
-As I mentioned I decided to try-out non-iterative prunning strategy and see the effect of iterating pruning in model-scale. In this context I've pruned our initial network with different prunning iterations and retraining epochs keeping the layer-wise prunning factors constant. At each prunning iterations a for loop visits all layers and prune a portion of connections and then the model tuned with retraining. For the labels below `x/y` x represents number of pruning iterations, whereas y represents number of retraining epochs performed after each pruning iteration. To be fair the overall number of retraining epochs during prunning $x*y$ kept around $40$ for different experiments. The generalization erros with increasing total number of parameters are plotted below. 
+As I mentioned I decided to try-out non-iterative prunning strategy and see the effect of iterating pruning in model-scale. In this context I've pruned our initial network with different prunning iterations and retraining epochs keeping the layer-wise prunning factors constant. At each prunning iterations a for loop visits all layers and prune a portion of connections and then the model tuned with retraining. For the labels below `x/y` x represents number of pruning iterations, whereas y represents number of retraining epochs performed after each pruning iteration. To be fair the overall number of retraining epochs during prunning $$x*y$$ kept around $$40$$ for different experiments. The generalization erros with increasing total number of parameters are plotted below. 
 
 ![conv1](/assets/images/network_pruning/plots/lenet5-prunstrategy.png)
 

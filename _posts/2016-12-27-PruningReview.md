@@ -21,7 +21,7 @@ Song Han starts the paper with a focus on energy consumption of neural networks 
 To prune the network importance of each weight is learned with a training method that is not mentioned. After this learning step, connections whose importance weights below a certion threshold are removed. Then the network is retrained and this part is crucial. 
 
 - __Regularization__: L1 and L2 regularizations are used during training and it is observed that even though L1(forces sparse weights) gives better after pruning accuracy, the accuracy after retraining observed to be better with L2
-- __Dropout Factor__: Dropout should be adjusted during retraining due to the pruned connections with $D_{new}=D_{old}\sqrt{\frac{C_{new}}{C_{old}}}$
+- __Dropout Factor__: Dropout should be adjusted during retraining due to the pruned connections with $$D_{new}=D_{old}\sqrt{\frac{C_{new}}{C_{old}}}$$
 - __Local Pruning and Parameter Co-adaptation__: No reinitilization is made after pruning because it is obviously stupid to do. You can just train with smaller size if that was possible. ConvNet part and Fully Connected Layer's are pruned separetely. It is mentioned that computation is less then original since partial retraining is made. _I am not sure why this is not made layer by layer if vanishing gradients are the problem._
 - __Iterative Prunning__: Prunning made through iterating and doing _greedy search_ at each iteration. I am not sure which algorithm _greedy search_ supposed to point here. It is a vague term. Doing one pass agressive prunning led bad accuracy. 
   My guesses about about iterative _greedy search_ are:
@@ -55,12 +55,17 @@ Yann Le Cun's pruning paper emphasizing the importance of pruning as a regulariz
 - Saliency = change in the error function by deleting the parameter: HARD to COMPUTE
 - Taylor Series Approximation: 
 $$\delta E=\sum_{i}g_i\delta u_i + \frac{1}{2}\sum_{i}h_{ii}\delta u_i^2 + \frac{1}{2}\sum_{i\ne j}h_{ij}\delta u_i \delta u_j + O(||\delta U ||^3)$$
-The first term is neglected, since it is assumed that the model is converged and gradients are near zero. The third term is neglected by assuming $\delta E$'s of each parameter is independent of others and therefore the overall $\delta E$ is equal to the sum of individual $\delta E$'s. The last term is also neglected since the cost function is nearly quadratic. Then we left with:
+
+The first term is neglected, since it is assumed that the model is converged and gradients are near zero. The third term is neglected by assuming $$\delta E$$'s of each parameter is independent of others and therefore the overall $$\delta E$$ is equal to the sum of individual $$\delta E$$'s. The last term is also neglected since the cost function is nearly quadratic. Then we left with:
+
 $$\delta E=\frac{1}{2}\sum_{i}h_{ii}\delta u_i^2 $$
-- Diagonal approximation of hessian matrix is calculated by (where $V_k$ is set of connections sharing the same weight):
+
+- Diagonal approximation of hessian matrix is calculated by (where $$V_k$$ is set of connections sharing the same weight):
+
 $$ h_{kk}=\sum_{(i,j) \in V_k}\frac{\delta^2 E}{\delta w_{ij}}=
 \sum_{(i,j) \in V_k}\frac{\delta^2 E}{\delta a_{i}^2}x_j^2=
 \sum_{(i,j) \in V_k} 2 x_j^2 (f'(a_i)^2-(d_i-x_i)f''(a_i))$$
+
 - The recipe of pruning connections according to the second order approximation given in the paper, where at each iteration some portion of the lowest saliency connections are pruned.
 - A clear improvement over magnitude based prunning reported.
 - A really interesting result is reported, too. MSE is increased aroun 50% percent after iterative pruning, however the test accuracy decreased, which is a clear indication showing the importance of loss function, i.e. MSE is not the right metric.
@@ -71,9 +76,10 @@ This paper focuses on some transfer learning tasks where the models trained on I
     - transfer&converge
     - iterate with prune+retrain
     - Stop when the goal is reached
-- They used Spearman's rank correlation to compare different saliency metrics with the optimal 'oracle' method(prune and measure $\delta E$), even though they pick only one neuron at each time.
+- They used Spearman's rank correlation to compare different saliency metrics with the optimal 'oracle' method(prune and measure $$\delta E$$), even though they pick only one neuron at each time.
 - First order Taylor approximation gives best results compare to 1)sum of weights(of a neuron) 2)mean 3)std 4)mutual info, which is trivial and expected. Why should mean of weigths of a neuron be a metric for pruning... 
 - The first order approximation is basically the first term in the functions above 
+
 $$\delta E=\sum_{i}g_i\delta u_i$$
 
 ### Comparing Biases for Minimal Network Construction with Back-Propagation, *Hanson et. al.*
