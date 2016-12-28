@@ -59,6 +59,7 @@ An interesting result is even though at some layers(first and last) it provides 
 
 ### Implementing various Pruning Functions 
 There are 2 main methods proposed in the literature as pruning metrics. 
+
 - Taylor series based approximations of $$\delta E$$: 
     - Using 1st order approximation: `-pruner taylor1`
     - Using 2nd order diagonal approximation: `-pruner taylor2`
@@ -79,6 +80,7 @@ Later I've also implemented emprical scoring of weights, where for each weight I
 Even though the graph for emprical pruning is sampled with 5 values due to high computation cost it requires, this experiment convinced me that magnitude based pruning works good enough. Therefore I focused on how to prune a network with minimum hyper-parameters, such that one can apply the idea easily to any network.
 
 An important point here to made is, all of the methods above try to approximate or optimize according to the loss function function. However in `Optimal Brain Damage` paper and during my experiments, I've realized that the relationship between loss function and generalization error is not parallel. In other words while trying to pick the less important weights, one doesn't neceserally get best generalization error. 
+
 ### Model-wide Pruning Experiments and Results 
 Overall pruning rate is basically set by the layers who has the majority of the parameters. In our model it is the first fully connected layer. Therefore I focused pruning that layer aggresively, whereas I set more lossy rates for other "small" layers. Parameter breakdown and target pruning rates are given.
 
@@ -97,6 +99,7 @@ Interestingly iterative prunning doesn't cause superior results compare to one-t
 
 ### Next Steps and Conclusion
 Due to the technical work required to implement underlying compressing mechanism, I've focused on pruning connections and performed various experiments about the method of pruning. I've got even better compression rate then it is given in the original paper. However there are some slight differences between Lenet-5 models I think pruned. I think my initial training was not good as theirs. However I believe my main contribution is:
+
 - A torch implementation of network pruning.
 - To show that magnitude-based prunning works actually quite well. 
 - Layer-wise sensitivity difference doesn't seem like true.
