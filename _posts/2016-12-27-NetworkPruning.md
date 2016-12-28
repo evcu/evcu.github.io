@@ -5,10 +5,6 @@ tags: [ml, neural networks, torch, pruning, compressing]
 category: ml
 excerpt: "Implementation of network pruning using torch."
 ---
-
-Code: https://github.com/evcu/cv2016/tree/master/project
-
-## Compressing Neural Networks 
 As my final project for the Computer Vision class thought by Rob Fergus in Fall 2016, I got the project of implementing compression ideas of Song Han presented in paper `Learning both Weights and Connections for Efficient Neural Networks`. Let's start with a brief summary of my-work and results.
 
 
@@ -112,7 +108,7 @@ The idea of training an over-paramatized model first and then prunning reported 
 
 ![conv1](/assets/images/network_pruning/plots/lenet5-pruntrain.png)
 
-
+### [Code](https://github.com/evcu/cv2016/tree/master/project)
 
 ```lua
 Plot = require 'itorch.Plot'
