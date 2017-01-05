@@ -325,6 +325,7 @@ sleep 24.1
 ```
 
 I defined the hierarchy of activites and their descriptions with another text file.
+
 ```
 -,survival,Survival Activities
 bfast,Breakfast
