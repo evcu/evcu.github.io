@@ -14,10 +14,9 @@ I've recorded what I did in a week during my first semester at NYU. I've gathere
 - **Social:** Time spent with friends, skype talks
 - **Fun:** Surfing, NFL, Shopping
 
-
 I've used Python to pre-process the text data I had and save it as json file. 
 
-<p>I've used the Andreas Dewes's <a href="https://bl.ocks.org/adewes/4710330" target="_blank">Hierarchical Pie Chart</a></p>
+<p>I've used the Andreas Dewes's <a href="https://bl.ocks.org/adewes/4710330" target="_blank">Hierarchical Pie Chart</a> for visualization.</p> 
 
 Click slices to zoom-in, click center to zoom-out
 
@@ -300,8 +299,64 @@ function init_plots()
 window.onload = init_plots;
 window.onresize = init_plots;
 
-
 </script>
 <script type="text/javascript" src="/assets/data/oneweek.js"></script>
 <div id="code_hierarchy_legend">&nbsp;</div>
 <div id="code_hierarchy">&nbsp;</div>
+
+Here is an excerpt from the raw file I've logged through the week
+
+```
+day 1 tuesday
+wake 8.2
+bfast 8.2 9
+hwA 9 9.2
+comm 9.2 9.3
+web 9.3 10
+hwM 10 12
+...
+comm 19.4 20.1
+dinner 20.2 21
+web 21 22
+proj 22 22.2
+hwM 22.2 23.3
+web 23.3 24
+sleep 24.1
+```
+
+I defined the hierarchy of activites and their descriptions with another text file.
+```
+-,survival,Survival Activities
+bfast,Breakfast
+sleep,Sleeping
+lunch,Lunch
+comm,Commute
+dinner,Dinner
+-,social,Social Activites
+skypeFa,Skype with Family
+friends,Meeting with Friends
+skypeF,Skype with Friends
+skypeJ,Skype with Julia'
+...
+```
+
+I've wrote a python script to pre-process the raw text data to a json file according to the hiearchy above. Final json file looks like the following.
+
+```
+["One Week of NYC", 
+9630, 
+{"fun": ["Fun Activities", 
+    610, 
+    {"shop": ["Shopping", 
+        60,
+        {}],
+    "web": ["Web Surfing", 
+        380, 
+        {}],
+     "nfl": ["Watching NFL", 
+        170, 
+        {}] 
+    }], 
+"academic": ["Academical Activities", 
+...
+```
