@@ -17,7 +17,7 @@ I've recorded what I did in a week during my first semester at NYU. I've gathere
 
 I've used Python to pre-process the text data I had and save it as json file. 
 
-<p>I've used the Andreas Dewes's <a href="http://bl.ocks.org/adewes/4710330" target="_blank">Hierarchical Pie Chart</a></p>
+<p>I've used the Andreas Dewes's <a href="https://bl.ocks.org/adewes/4710330" target="_blank">Hierarchical Pie Chart</a></p>
 
 Click slices to zoom-in, click center to zoom-out
 
@@ -38,7 +38,7 @@ Click slices to zoom-in, click center to zoom-out
 }
 </style>
 
-<script src="http://d3js.org/d3.v3.js"></script>
+<script src="https://d3js.org/d3.v3.js"></script>
 <script lang="text/javascript">
 
 function init_code_hierarchy_plot(element_id,data,count_function,color_function,title_function,legend_function)
