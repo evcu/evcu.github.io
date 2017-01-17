@@ -29,7 +29,7 @@ This is the blog **pretty compact**. I am planning to make it better during _the
     <div id="mytablediv">
      <span id="day_rt">Random thoughts</span></div></td>
     <td width="34%"><div id="mytablediv" >
-    <img src="assets/images/blogimg/nyc365.gif" id="day_pic"></div></td>
+    <img src="/assets/images/blogimg/nyc365.gif" id="day_pic"></div></td>
     </tr>
     </tbody>
     </table>
