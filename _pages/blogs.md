@@ -6,6 +6,9 @@ header:
   image: /assets/images/blogimg/head.jpg
   caption: March 2016, Mt. Kinabalu, Borneo
 feature_row:
+  - image_path: assets/images/blogimg/nyc365.gif
+    title: "365 Days of NYC"
+    url: nyc365blog
   - image_path: assets/images/blogimg/ege7d.jpg
     title: "7 Days in Ege"
     url: http://ege7d.tumblr.com/

@@ -23,7 +23,7 @@
                 var colour = d3.scale.linear()
                     .range([colourRangeStart, colourRangeEnd]);
 
-                var margin = {top: 20, right: 30, bottom: 5, left: 20};
+                var margin = {top: 20, right: 30, bottom: 5, left: 30};
                 // update width and height to use margins for axis
                 if (width=="100%"){
                 	width=parseFloat(d3.select(this).style("width"))
