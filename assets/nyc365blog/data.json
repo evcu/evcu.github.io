@@ -6,29 +6,5 @@
         "mood": "1", 
         "other": "nope", 
         "text": "I am happy to start this a new way of blogging, no new lines. I astart the bash script which calls the python script, which reads my daily answers to the 4 box and 1 emotion scale, then it copies the image, updates the json file and pushes the changes. Awesome. I may remove the other part, depending on its usage. So here it is. I would like to mention my first trial of starting this, when I first to NYC. I wrote two days using markdown but didn't continue, because it was two much to do regularly. Therefore I came up with this version of blogging. Short and compact and easy to read I hope. So I was here in NYC and after 4 months I can say I feel much better, much more content and much more ready to discover it. Food heated again in uwave is never good! Lets see how the days evolve"
-    }, 
-    {
-        "date": "2017-01-16", 
-        "high": "den", 
-        "low": "den", 
-        "mood": "1", 
-        "other": "den", 
-        "text": "den"
-    }, 
-    {
-        "date": "2017-01-16", 
-        "high": "2", 
-        "low": "3", 
-        "mood": "1", 
-        "other": "4", 
-        "text": "5"
-    }, 
-    {
-        "date": "2017-01-16", 
-        "high": "2", 
-        "low": "3", 
-        "mood": "1", 
-        "other": "4", 
-        "text": "5"
     }
 ]
