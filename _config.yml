@@ -234,6 +234,10 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  nyc365blog:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -248,6 +252,14 @@ defaults:
       comments: # true
       share: true
       related: true
+  - scope:
+      path: ""
+      type: nyc365blog
+    values:
+      layout: single
+      author_profile: true
+      comments: # true
+      share: true
   - scope:
       path: ""
       type: pages

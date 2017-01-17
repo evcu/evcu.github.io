@@ -1,0 +1,93 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
+body {
+    font-family: "Source Code Pro", Consolas, monaco, monospace;
+    line-height: 1.5;
+  font-weight: 400;
+}
+.day {
+  fill: #ebdf41;
+  stroke: black;
+  stroke-width: .5px;
+}
+.month {
+  fill: none;
+  stroke: white;
+  stroke-width: 1px;
+}
+.year-title {
+  font-size: 18px;
+  letter-spacing: 10px;
+  fill: #00B0DD; 
+}
+#info {
+  font-size: 13px;a
+  height: 33px;
+  width: 100%;
+  background: #ffff00;
+  opacity: 0.9;
+  z-index: 22;
+  background: #00B0DD;
+  color: white;
+}
+
+#day_hl, #day_ll, #day_ot, #day_rt  {
+  font-size: 13px;a
+  height: 33px;
+  width: 100%;
+  color: white;
+}
+
+#day_hl, #day_ll, #day_ot, #day_rt  {
+  width="100%"; 
+  height="100%";
+  color: white;
+}
+
+
+style="width:200px; height:auto;"
+
+#mytable {
+    table-layout: fixed;
+    border: 1px solid black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    width:100%;
+    border:2px;
+    border-spacing:3px;
+    border-collapse:separate;
+    padding:10 10px;
+}
+
+#mytablediv {
+  overflow: auto; 
+  height: 200;
+  max-height: 200px;
+}
+
+td, th {
+transition:all .3s;
+text-align:center;
+}
+
+td {
+background:#329ebb;
+}
+
+tr {
+background:#d53492;
+}
+
+tr td:hover {
+background:#666;
+color:#FFF
+}
+
+#heatmap {
+  padding-top: 5px;
+}
+svg text { 
+  font-size: 11px;
+  text-transform: uppercase;
+  fill: #00B0DD;
+}
