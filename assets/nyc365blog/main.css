@@ -31,20 +31,12 @@ body {
 }
 
 #day_hl, #day_ll, #day_ot, #day_rt  {
-  font-size: 13px;a
-  height: 33px;
-  width: 100%;
-  color: white;
-}
-
-#day_hl, #day_ll, #day_ot, #day_rt  {
+  font-family: "Source Code Pro", Consolas, monaco, monospace;
+  font-size: 12px;a
   width="100%"; 
   height="100%";
   color: white;
 }
-
-
-style="width:200px; height:auto;"
 
 #mytable {
     table-layout: fixed;
