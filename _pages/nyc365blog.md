@@ -3,6 +3,9 @@ layout: single
 title: "365 Days in New York City"
 permalink: /nyc365blog/
 ---
+
+This is the blog **pretty compact**. I am planning to make it better during _the year_. But I should admit it is already _damm good_. **Click** any available square to see the data!
+
 <link rel="stylesheet" href="/assets/nyc365blog/main.css">
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js" charset="utf-8"></script>
