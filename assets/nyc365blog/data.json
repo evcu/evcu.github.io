@@ -6,5 +6,13 @@
         "mood": "1", 
         "other": "nope", 
         "text": "I am happy to start this a new way of blogging, no new lines. I called the bash script which calls the python script, which reads my daily answers to the 4 box and 1 emotion scale, then it copies the image, updates the json file and pushes the changes. Awesome. I may remove the other part, depending on its usage. So here it is. I would like to mention my first trial of starting this blog, when I first arrive to NYC. I wrote two days using markdown but didn't continue, because it was two much to do regularly. Therefore I came up with this version of blogging. Short and compact and easy to read, I hope. So I was here in NYC and after 4 months I can say I feel much better, much more content and much more ready to discover it. Food heated again in uwave is never good! Lets see how the days evolve"
+    }, 
+    {
+        "date": "2017-01-17", 
+        "high": "nope", 
+        "low": "watched Sex and the City all night , feeling lazy   ", 
+        "mood": "0", 
+        "other": "Went to Joyce Bakeshop down to Vanderbilt Ave , saved metro fees", 
+        "text": "It's just weird how I felt today , shouldn't I supposed to be happy? I am not happy when I am not able to do what I need to do. No you aren't need to do shit. But it feels like I have to do when people appreciate my hardwork. Utku needs to be great! I feel like people are expecting. so. It is like If I fail then I am under achiever. We have a problem here: Too much thinking. Now I will get rid of the nice sentence I wrote on the whiteboard: \"I want to -> blabalbalba...small plans/what is the big thing? / why you do these.../->To be content at the end. / what else can you do ? / -> The problem is your imagination is limited by your reality. but I am the become-better-guy. I wanna be really good at software and ML.\" (but I don't feel it now, was it for a day only? haha)"
     }
 ]
