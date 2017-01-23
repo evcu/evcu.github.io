@@ -71,7 +71,7 @@ This is the blog **pretty compact**. I am planning to make it better during _the
                       return 'date: ' + f(d) + ' and you are ' + youare;
                   });
              d3.select("#day_pic")
-              .attr("src","/assets/nyc365blog/images/"+myf(d));
+              .attr("src","/assets/nyc365blog/images/"+myf(d)+".jpg");
           })
           .on('_click', function (d, i) {
               d3.select('#day_ot')

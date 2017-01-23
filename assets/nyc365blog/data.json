@@ -1,6 +1,6 @@
 [
     {
-        "date": "2017-01-16.jpg", 
+        "date": "2017-01-16", 
         "high": "Rob Fergus offered RAship! , Launch day of the blog! , I got my reading-stand , First gym after sickness", 
         "low": "nope", 
         "mood": "1", 
@@ -8,7 +8,7 @@
         "text": "I am happy to start this a new way of blogging, no new lines. I called the bash script which calls the python script, which reads my daily answers to the 4 box and 1 emotion scale, then it copies the image, updates the json file and pushes the changes. Awesome. I may remove the other part, depending on its usage. So here it is. I would like to mention my first trial of starting this blog, when I first arrive to NYC. I wrote two days using markdown but didn't continue, because it was two much to do regularly. Therefore I came up with this version of blogging. Short and compact and easy to read, I hope. So I was here in NYC and after 4 months I can say I feel much better, much more content and much more ready to discover it. Food heated again in uwave is never good! Lets see how the days evolve"
     }, 
     {
-        "date": "2017-01-17.jpg", 
+        "date": "2017-01-17", 
         "high": "woke up with alarm", 
         "low": "watched Sex and the City all night , feeling lazy   ", 
         "mood": "0", 
@@ -16,7 +16,7 @@
         "text": "It's just weird how I felt today , shouldn't I supposed to be happy? I am not happy when I am not able to do what I need to do. No you aren't need to do shit. But it feels like I have to do when people appreciate my hardwork. Utku needs to be great! I feel like people are expecting. so. It is like If I fail then I am under achiever. We have a problem here: Too much thinking. Now I will get rid of the nice sentence I wrote on the whiteboard: \"I want to -> blabalbalba...small plans/what is the big thing? / why you do these.../->To be content at the end. / what else can you do ? / -> The problem is your imagination is limited by your reality. but I am the become-better-guy. I wanna be really good at software and ML.\" (but I don't feel it now, was it for a day only? haha)"
     }, 
     {
-        "date": "2017-01-18.jpg", 
+        "date": "2017-01-18", 
         "high": "30 min talk with Prof. Bari , woke up at 8 and left at 9 , gym , bookmark garbage collection", 
         "low": "feeling lazy", 
         "mood": "0", 
@@ -24,7 +24,7 @@
         "text": "Hey ho, I forgot to log today in, so I am here. "
     }, 
     {
-        "date": "2017-01-19.jpg", 
+        "date": "2017-01-19", 
         "high": "First Comedy Show at Columbia , first chicken patato in oven , first run after ssickness", 
         "low": "slept until geting bored of it , no work all day", 
         "mood": "0", 
@@ -32,7 +32,7 @@
         "text": "Friends are important , so is waking up early. We came here to live not sleep, cmon. / What a great dish it was, I ate celery roots for the first time. Read the ultimete guide to waking up early. Hey what I am my ultimate guide! / Another interesting things is this mood logging is hard. For example today I was unhappy in the first half and happy in the second. So I marked natural. I feel like most of it gonna bu natural. "
     }, 
     {
-        "date": "2017-01-20.jpg", 
+        "date": "2017-01-20", 
         "high": "early wake-up , free beer and seeing friends , studied too , feeling better at swimming", 
         "low": "got wet under the rain", 
         "mood": "1", 
@@ -40,7 +40,7 @@
         "text": "I shouldn't log this with a day delay. But I will consider the day as happy, perfect day. Study, work-out, drink with friends and I was at home around 23"
     }, 
     {
-        "date": "2017-01-21.jpg", 
+        "date": "2017-01-21", 
         "high": "Did it 3 times", 
         "low": "Slept forever being hangover", 
         "mood": "0", 
@@ -48,7 +48,7 @@
         "text": "I spent another day in my room. Didn't do much. But feeling okay. Tomorrow is the big day, then the semester starts. Are we ready??"
     }, 
     {
-        "date": "2017-01-22.gif", 
+        "date": "2017-01-22", 
         "high": "First 1/2 marathon , 25 dolar day ", 
         "low": "", 
         "mood": "1", 
