@@ -39,7 +39,7 @@ momentum = 0.95 | momentum = 0.75
 
 - **Multihreading / ParallelIterator** I have realized that the original code, preprocesses the images during training at each epoch again and therefore creates a bottleneck. Instead I decided to process the images before training and save it, then read it at each epoch with the iterator. By doing so we are processing the data-set only once, and the iterator only reads/shuffles/do the partition of the data. I've implemented parallel-iterator and used `nThrLoad` flag to define multiple parallel iterators. However I've observed that this reduced the performance and increaased the memory usage considerably. I've observed that one thread is fast enough at serving multiple threads(12-16) and therefore stick with the single iterator for the rest of the trainings. 
 
-- **BEST_ERROR: ** around 5% 
+- **BEST_ERROR:** around 5% 
 
 
 # conv1
@@ -51,7 +51,7 @@ w/ resampling | w/o resampling
 :-------------------------:|:-------------------------:
 ![im1](/assets/images/traffic-sign-detection/c_plots/9267625.png) | ![im1](/assets/images/traffic-sign-detection/c_plots/9267615.png) 
 
-- **BEST_ERROR: ** around 9.6% 
+- **BEST_ERROR:** around 9.6% 
 
 # conv2/3 
 conv2 | conv3
@@ -61,7 +61,7 @@ conv2 | conv3
 
 So it gets worst if I make the #filters, why not increasing them. I’ve created 2 new models `conv2` having double amount of filters and one extra of fully connected layer. I’ve trained the model and I got pretty much the same result as the base-cifar model gets. `conv3` was an experiment making the #filters of the first layer big. I’ve read that it is better if it is a small number and you increase number of filters while decreasing the dimensions through conv-layers. I wanted to check that and the result confirmed the statement. I’ve got an error around %5.6, which is .6% worst then the base-cifar model. 
 
-- **BEST_ERROR: ** around 5% 
+- **BEST_ERROR:** around 5% 
 
 # conv4/5/6 and basic64 
 conv4 | conv5 | conv6
@@ -72,7 +72,7 @@ conv4 | conv5 | conv6
 So at this point I decided to increase the input-image size and start scaling images to 64x64 and I've introduced model `conv4` with it. It does increased my best score by 1%. It was considerably slower then the base model `cifar`(10x). Therefore I wanted to measure whether the increase was due to the increased #filters or due to the dropout layer. I've created two models while decreasing the filter sizes and making the models more plausable to train. 
 
 Dropout appeared as being quite important for better accuracy. With the better and faster model `conv6` I've run 100 epoch and got 2.9%
-- **BEST_ERROR: ** around 2.9% 
+- **BEST_ERROR:** around 2.9% 
 
 # conv7 and norm64
 ![im1](/assets/images/traffic-sign-detection/bds/conv7.jpg) 
@@ -89,7 +89,7 @@ conv7/basic64 | conv7/norm64
 :-------------------------:|:-------------------------:
 ![im1](/assets/images/traffic-sign-detection/c_plots/9277101.png) | ![im1](/assets/images/traffic-sign-detection/c_plots/9277119.png) 
 
-- **BEST_ERROR: ** around 2.6% 
+- **BEST_ERROR:** around 2.6% 
 
 # conv48-1 and cut48/cut48contra
 ![im1](/assets/images/traffic-sign-detection/bds/conv48-1.jpg) 
@@ -102,7 +102,7 @@ conv48-1/cut48 (97.2%) | conv48-1/cut48contra (97.7%)
 
 After this I've exprimented with learning rare and got worst results with LR=0.01. Then I've turned resampling on and got a slight improvemnt after 50 epochs ending up the best performance so far
 
-- **BEST_ERROR: ** around 2.2% 
+- **BEST_ERROR:** around 2.2% 
 
 # conv48-2/3
 cconv48-2 | conv48-3
@@ -122,4 +122,4 @@ conv48-2 | conv48-3
 :-------------------------:|:-------------------------:
 ![im1](/assets/images/traffic-sign-detection/c_plots/9279990.png) | ![im1](/assets/images/traffic-sign-detection/c_plots/9277622.png)
 
-- **BEST_ERROR: ** around 0.9% 
+- **BEST_ERROR:** around 0.9% 
