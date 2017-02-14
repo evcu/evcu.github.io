@@ -206,7 +206,7 @@
         "mood": "1", 
         "other": "Gregory's Coffee is great, they don't ask for tip when they pay with card , ballerinas are adorable , sun after snow is the brightest", 
         "text": "Today I've used the other section in a meanningful way. Today I've finished the Kahneman's book and the last part was prominent. It was a summary of the book and some condensed thoughts about one's life and happiness. It's nice to find your own thought that you might have thought once upon a time, in a book. It is also really nice to talk with people about these, semi/deep non-daily stuff. Daily stuff is sometimes boring, O I remembered that! An another thing is one shouldn't speak too much and shout to make your voice notebale in a bar"
-    },
+    }, 
     {
         "date": "2017-02-11", 
         "high": "went out and had fun with friends(Omer,Caner,Julia,Mikki,Berrak)!, studied all day, run", 
@@ -214,7 +214,7 @@
         "mood": "0", 
         "other": "nope", 
         "text": "nope"
-    },
+    }, 
     {
         "date": "2017-02-12", 
         "high": "long sleep", 
@@ -222,5 +222,13 @@
         "mood": "0", 
         "other": "ml homework allday", 
         "text": "I am sad that I've worked on it all day and couldn't complete it. I supposed to work on other stuff today. I should be able to let it go. I will catch up this week. More productive one should be huh? No motivation to do so..."
+    }, 
+    {
+        "date": "2017-02-14", 
+        "high": "no google internship news ", 
+        "low": "windy day", 
+        "mood": "0", 
+        "other": "it was a long day I can say , did good stuff: Am I satisfied?", 
+        "text": "I've started the book of celine. It is written in turkish, so I am able to read a lot in a day. It's kind of a strong, fast-pace book. I love those kind of speeches and it reminds me sabahattin ali or salinger or nietsche..."
     }
 ]
