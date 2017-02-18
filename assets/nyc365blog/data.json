@@ -251,8 +251,16 @@
         "date": "2017-02-16", 
         "high": "early morning sport", 
         "low": "so boring seminar", 
-        "mood": "1", 
+        "mood": "0", 
         "other": "nope", 
         "text": "beer yay"
+    }, 
+    {
+        "date": "2017-02-17", 
+        "high": "nope", 
+        "low": "nope", 
+        "mood": "-1", 
+        "other": "nope", 
+        "text": "I wasn't specifically unhappy today, I've waken up after 1 hour extra sleep andd had a nice breakfast and studied and lunch and konditori and got bored and more ML homework and now I am back home. Drink a beer and pop corns watch 4 episodes of Sex and the city(5th season is horrible, everyone got so old, new york look so boring). Actually it was an okay day. But I will mark this -1, for the last 2-2-3 hours where I gradually started to feel bad, no idea way. Probably about feeling bad about things that I would better do instead of doing other stuff. It is eaither there or not. "
     }
 ]
