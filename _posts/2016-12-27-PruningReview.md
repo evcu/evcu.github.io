@@ -48,6 +48,19 @@ There is still one point that is not clear to me how the pruning is made with L1
 - Weight distribution of before/after pruning is given. Weights around 0 is disapeared. 
 
 ## Other Related Papers
+### Sparse Convolutional Neural Networks, *Liu et. al.*
+I haven't fully dived in to the decomposition part, but lets reflect on it.
+- Uses matrix decomposition to get sparse parameters with an accuracy-sparsity tradeoff. 
+- After decomposition the model is retrained with regularization paramaters on the decomposed matrices.
+- A sparse matrix multiplication algorithm is devised to utilize sparsity in the conv-layers.(256 bit AVX registers etc.)
+- The algorithm is applied to the Imagenet CNN model in caffe.
+- Decreased accuracy around 2%
+
+### Learning Structured Sparsity in Deep Neural Networks, *Wei Wen et. al*
+- Structured Sparsity Learning(SSL) they name their algortithm.
+- They use group lasso to obtain sparsity in different levels like row-column-filtersize-depthwise. 
+- Didn't understand how they pick group lasso parameters(there are 4 of them I think)
+- They provide really small speedups for Song Han's prunning method. Even sometimes slow down
 
 ### Optimal Brain Damage, *LeCun et. al.*
 Yann Le Cun's pruning paper emphasizing the importance of pruning as a regularizer and performance-optimizer. The idea of deleting parameters with small `saliency` is proposed. Magnitude of weights proposed as simple measure of saliency in the earlier literature and its similarity to the weight decay mentioned. This paper proposes a better more accurate measure of saliency. 
