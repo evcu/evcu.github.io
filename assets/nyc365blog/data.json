@@ -422,5 +422,13 @@
         "mood": "1", 
         "other": "", 
         "text": "I feel like I am still alone, but you get used to it right. There is only the life in front of your eyes. "
+    }, 
+    {
+        "date": "2017-03-14", 
+        "high": "great ribs! , cheap uber , warm wheather , no course stuff", 
+        "low": "windy night", 
+        "mood": "1", 
+        "other": "nope", 
+        "text": "I didn't enter these during the day. I can make an app to enter these stuff from the phone"
     }
 ]
