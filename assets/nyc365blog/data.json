@@ -478,5 +478,29 @@
         "mood": "1", 
         "other": "single room", 
         "text": ""
+    }, 
+    {
+        "date": "2017-03-17", 
+        "high": "meeting with people in such a context is great!, feiling bold, late night speak with julia", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "late entry", 
+        "text": "I shouldn't enter late, I don't remember"
+    }, 
+    {
+        "date": "2017-03-18", 
+        "high": "painting , really nice night scene, dancing in the street with a random guy, smoking inside in a closed space for the first time, a lot of dance", 
+        "low": "long bus drives , failed to get in to Barbary", 
+        "mood": "1", 
+        "other": "single room", 
+        "text": ""
+    }, 
+    {
+        "date": "2017-03-19", 
+        "high": "a long sleep , happy to be back!", 
+        "low": "feeling lonely after 3 days of interaction", 
+        "mood": "0", 
+        "other": "worried about the deadlines after 10 days of holiday.", 
+        "text": "I should be able to do fine. I don't why I got so low in ML exam. I should investigate that. Other then that I want to keep enjoying my days, since I felt free during the holiday, but the problem is it is not sustainable. Maybe it is, one can travel and work and party, maybe? We all gonna die and missing people make sense."
     }
 ]
