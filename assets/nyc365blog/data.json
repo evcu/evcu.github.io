@@ -612,7 +612,15 @@
         "high": "roller blade season is on!", 
         "low": "lazy", 
         "mood": "1", 
-        "other": "such a day, warm and everyhting. It is good to connect to people. It is good. But then it is hard to go back to work. Right?", 
+        "other": "", 
         "text": "such a day, warm and everyhting. It is good to connect to people. It is good. But then it is hard to go back to work. Right?"
+    }, 
+    {
+        "date": "2017-04-03", 
+        "high": "spring feelings all-over", 
+        "low": "not productive", 
+        "mood": "0", 
+        "other": "bd class is a bit f-up", 
+        "text": "Random thoughts are for good"
     }
 ]
