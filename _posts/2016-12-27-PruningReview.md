@@ -6,7 +6,7 @@ category: ml
 excerpt: "A small review of literature on network pruning"
 ---
 
-As my final project for the Computer Vision class thought by Rob Fergus in Fall 2016, I got the project of implementing compression ideas of Song Han presented in paper `Learning both Weights and Connections for Efficient Neural Networks`. Here is a very short review of the paper and some more.
+As my final project for the Computer Vision class tought by Rob Fergus in Fall 2016, I got the project of implementing compression ideas of Song Han presented in paper `Learning both Weights and Connections for Efficient Neural Networks`. Here is a very short review of the paper and some more.
 
 ## Weights and Connections for Efficient Neural Networks
 Song Han starts the paper with a focus on energy consumption of neural networks and motivates the need of compressing neural networks by pointing out that a smaller network would fit in memory and therefore the energy consumption would be less. He first talks about the Related Work
