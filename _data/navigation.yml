@@ -6,3 +6,5 @@ main:
     url: /alg/
   - title: "Machine Learning"
     url: /ml/
+  - title: "Notes"
+    url: /notes/

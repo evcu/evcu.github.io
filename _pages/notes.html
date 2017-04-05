@@ -1,0 +1,12 @@
+---
+layout: archive
+permalink: /notes/
+title: "Notes on Stuff"
+author_profile: true
+---
+
+ {% for post in site.posts %}
+   {% if post.categories contains 'notes' %}
+    {% include archive-single.html %}
+   {% endif %}
+{% endfor %}

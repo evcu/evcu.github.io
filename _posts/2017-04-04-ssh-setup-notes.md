@@ -5,12 +5,12 @@ tags: [tutorial,basics,ssh,hpc]
 category: notes
 excerpt: "useful ssh setup commands for good"
 ---
-If you are working remotely and connecting to another machine via ssh, sometimes it becomes too repetative to enter the passcode every single time if you don't know how to setup key-pairs. I didn't know this until very recent. So in this post I will share very simple ssh setup basics. Lets say you want to do following connection:
+If you are working remotely and connecting to some other machine via ssh all the time, sometimes it becomes too frustrating to enter the password every single time; if you don't know how to setup key-pairs. I didn't know this until very recently. So in this post I will share very simple ssh setup basics. Lets say you want to do following connection:
 
 > ssh test49@stampede.tacc.utexas.edu 
 
-I will explain the following 
-- How to create key-pair and share your public key with the remotes. Such that you can ssh without entering the password each time. This is especially useful when you are using mpi. 
+This post explains the following:
+- How to create key-pair and share your public key with the remotes. Such that you can ssh without entering the password each time. This is especially useful when you are running distributed code. 
 - How to create `config` file and create alias for ssh commands. So you can just call `ssh stampede` and you are connected to the machine! 
 
 
