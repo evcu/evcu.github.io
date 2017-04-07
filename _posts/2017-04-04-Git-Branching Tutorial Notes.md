@@ -22,3 +22,19 @@ I tried this awesome tutorial [`Learn Git Branching`](http://learngitbranching.j
 - `git tag <t_name> <c_name>`: tags a specific commit in the history permanently. If `<c_name>` ommited tags __HEAD__. 
 - `git describe <ref>`: returns how far you are from the closest tag. `<ref>`can be commit hash, branch name or tag
 
+
+## Part 2: Remotes
+- `git fetch`: sync's remote/branch with the remote. In other words downloads and updates __ALL__ the branches from remote. E.g. updates `origin/master`.
+- `git pull`: git fetch (the remote of the current branch) + git merge (with the current branch )
+- `git fetch; git rebase origin/master; git push`: when there is work done in remote and you also committed and you wanted to push and failed. Then you need to get the work first and rebase/merge first. Shortcut `git pull` or `git pull --rebase`.
+- `git checkout -b foo o/master`: creates a new branch and checsout there and connects remote branch with the new one. So now when you pull origin/master is merged with foo. Similarly, when you push from foo it goes to remote/master.
+- `git branch -u origin/master foo` same as above. you can omit foo if you are currently checked out there. 
+- `git push origin foo` you don't need to checkout there, you can just specify. So whatever foo's correspondace at the remote origin is it is pushed from wherever you want.
+- `git push origin <source>:<destination>`: this enables to push any branch to any brach in origin. source destination is any kind of ref. Like _HEAD^_
+- `git fetch origin foo`: very similar to push, wherever you are do the fetch from _origin_ to the _foo_ branch.
+- `git fetch origin <source>:<destination>`: similar to push but now opposite direction _source_ is in the remote. You don't need to specify the remote origin/branch here you can fetch to the branch if it is safe to do so. If destination doesn't exist, the branch is created for you.
+- `git push origin :<destination>`: removes `destination` 
+- `git fetch origin :<destination>`: removes `destination`
+
+`
+
