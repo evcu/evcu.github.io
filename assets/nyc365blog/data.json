@@ -713,10 +713,26 @@
     }, 
     {
         "date": "2017-04-15", 
-        "high": "all day bigdata , fatcat(1)", 
+        "high": "all day bigdata", 
         "low": "nope", 
         "mood": "0", 
         "other": "", 
         "text": "I hate bugs and sometimes I got into the flow of bugs and then time passes so fast. And coffees. and computer screen and music of course. Thats me sometimes"
+    }, 
+    {
+        "date": "2017-04-16", 
+        "high": "xxx party! , 28degree sunday", 
+        "low": "all day study with energy consuming Big Data project...", 
+        "mood": "1", 
+        "other": "", 
+        "text": "Sometimes things make you like give up everything, lets hope that they stay short."
+    }, 
+    {
+        "date": "2017-04-17", 
+        "high": "nope", 
+        "low": "felt weird ", 
+        "mood": "-1", 
+        "other": "all day exam prep", 
+        "text": "Random thoughts are good. But random acts? How one needs to be balanced when one day he have fun incredibly and another day it is all day of studying and stress. Yep maybe the problem is us zooming in to the moment and forgeting the big picture so easily. And also the feelings they are different every day. Is it possible to make something permament in this word. abstract or concrete..."
     }
 ]
