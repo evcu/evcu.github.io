@@ -822,5 +822,13 @@
         "mood": "0", 
         "other": "nope", 
         "text": "pretty standard day, with library and everything. Chained myself to the desk and supress the will. The will never asks for permission."
+    }, 
+    {
+        "date": "2017-04-30", 
+        "high": "bonobo", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "tiredNight", 
+        "text": "It is weird how tired one can become if the one does a leg day and start drinking at 6 and than you start ignoring all the beers you drank. Anyway, a really good concert... A well deserved one."
     }
 ]
