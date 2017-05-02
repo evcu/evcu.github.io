@@ -838,5 +838,13 @@
         "mood": "1", 
         "other": "nope", 
         "text": "I am convinced that I like cold more than hot"
+    }, 
+    {
+        "date": "2017-05-01", 
+        "high": "crazyEfficient", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "", 
+        "text": "o lala, feeling like a thinking machine and producing stuff writing codes and making things happen"
     }
 ]
