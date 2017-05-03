@@ -846,5 +846,13 @@
         "mood": "1", 
         "other": "", 
         "text": "o lala, feeling like a thinking machine and producing stuff writing codes and making things happen"
+    }, 
+    {
+        "date": "2017-05-02", 
+        "high": "basketballTime", 
+        "low": "hips_convolve_slow", 
+        "mood": "0", 
+        "other": "last_day_of_ml_class", 
+        "text": "fluctuations of the mood in a day and the tthings that cause that. Hard stuff, failures. jump back boy"
     }
 ]
