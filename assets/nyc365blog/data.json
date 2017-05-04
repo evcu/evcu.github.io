@@ -854,5 +854,13 @@
         "mood": "0", 
         "other": "last_day_of_ml_class", 
         "text": "fluctuations of the mood in a day and the tthings that cause that. Hard stuff, failures. jump back boy"
+    }, 
+    {
+        "date": "2017-05-03", 
+        "high": "nope", 
+        "low": "hpc_bug_stuck!", 
+        "mood": "0", 
+        "other": "nope", 
+        "text": "omg spend 6-8 hours on the multi-grid problem..."
     }
 ]
