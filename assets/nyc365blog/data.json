@@ -862,5 +862,13 @@
         "mood": "0", 
         "other": "nope", 
         "text": "omg spend 6-8 hours on the multi-grid problem..."
+    }, 
+    {
+        "date": "2017-05-04", 
+        "high": "nope", 
+        "low": "6hoursleep", 
+        "mood": "0", 
+        "other": "alergy doctor said I am in a good shape", 
+        "text": "big data is hard to manage and one needs to be able to structure stuff better. I am getting better at it, I hope. Other than that last 1 week before Turkey!! "
     }
 ]
