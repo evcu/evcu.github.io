@@ -865,10 +865,18 @@
     }, 
     {
         "date": "2017-05-04", 
-        "high": "nope", 
+        "high": "newDSisHere", 
         "low": "6hoursleep", 
         "mood": "0", 
         "other": "alergy doctor said I am in a good shape", 
         "text": "big data is hard to manage and one needs to be able to structure stuff better. I am getting better at it, I hope. Other than that last 1 week before Turkey!! "
+    }, 
+    {
+        "date": "2017-05-06", 
+        "high": "nope", 
+        "low": "soaked under the rain", 
+        "mood": "0", 
+        "other": "nope", 
+        "text": "I had my hand hurting because of typing in front of the computer. Not enjoying it today and it is kind of related to the unexpected works. But gonna jump back right to it"
     }
 ]
