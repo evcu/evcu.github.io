@@ -58,7 +58,7 @@ jupyter notebook --no-browser --port $port
 Than we submit the job
 ```
 sbatch run-jupyter.sbatch
-_Submitted batch job 953167_
+#Submitted batch job 953167
 ```
 
 When it is completed we have the log named `slurm-953167.out` with output similar to this.
