@@ -14,8 +14,9 @@ In this post I will explain three things
 For other things like exchanging key, ssh aliasing&tunneling check [this](https://evcu.github.io/notes/ssh-setup-notes/). 
 ## Jupyter Notebooks with Basic Local Forwarding.
 When you run 
-> jupyter notebook
-
+```
+jupyter notebook
+```
 a notebook is created on the default port, which is `http://localhost:8888/` on my Mac. One can use `--port ****` flag to specify the port of the local host. If we want to run the notebook on a server through ssh, we can use `Local Forwarding` which is the `-L` flag. Lets assume we have a server named  `hostOne` defined in `~/.ssh/config/`. For more information about how to do that you can check out my [ssh notes](https://evcu.github.io/notes/ssh-setup-notes/)).
 
 ```
@@ -25,8 +26,9 @@ jupyter notebook --port 8888
 
 Running the two lines above would start a notebook on the server `hostOne` at port 8888. And local forwarding connects the localhost at port 8000 to the port 8888 of the server. 
 
-- __Running a jupyter notebook on a Slurm cluster__
+## Running a Jupyter notebook on a Slurm Cluster
 Here we need understand ssh forwarding&tunneling. Even though it seems pretty complicated at the beginning, [this](https://unix.stackexchange.com/a/118650) answer explains it pretty well. Great vis!. When a job is started, it runs on a different address and we need to create a tunnel from the job-server to the  cluster we are connecting(the one we submit job in). In our example the cluster is NYU's `prince` and it uses _Slurm_ scheduler. What we need to do is first submit a job, which does the forwarding, starts the jupyter notebook and informs us. The job would be like following (inspired from [here](https://wikis.nyu.edu/display/NYUHPC/Running+Jupyter+on+Prince)). Lets name it `jupyterGPU.job`.
+
 ```
 #!/bin/bash
 #SBATCH --job-name=jupyterTest
@@ -54,11 +56,13 @@ jupyter notebook --no-browser --port $port
 ```
 
 Than we submit the job
-
-> sbatch run-jupyter.sbatch
-Submitted batch job 953167
+```
+sbatch run-jupyter.sbatch
+_Submitted batch job 953167_
+```
 
 When it is completed we have the log named `slurm-953167.out` with output similar to this.
+
 ```
 [I 17:41:05.035 NotebookApp] Writing notebook server cookie secret to /state/partition1/job-953167/jupyter/notebook_cookie_secret
 [I 17:41:06.051 NotebookApp] Serving notebooks from local directory: /home/ue225
@@ -66,7 +70,10 @@ When it is completed we have the log named `slurm-953167.out` with output simila
 [I 17:41:06.052 NotebookApp] The Jupyter Notebook is running at: http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11
 [I 17:41:06.052 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
+
 All we need to at this point is to run 
-> ssh -L 8765:localhost:8765 ue225@prince
+```
+ssh -L 8765:localhost:8765 ue225@prince
+```
 
 and copy `http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11` to our browser. 
