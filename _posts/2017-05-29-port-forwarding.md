@@ -76,4 +76,4 @@ All we need to at this point is to run
 ssh -L 8765:localhost:8765 ue225@prince
 ```
 
-and copy `http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11` to our browser. 
+and open `http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11` in your browser. 
