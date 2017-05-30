@@ -9,46 +9,64 @@ In the last few years Jupyter notebooks became a vital part of my coding routine
 
 In this post I will explain three things
 - How to start a jupyter notebook on a server using local forwarding.
-- How to configure ssh-tunelling.
 - How to start jupyter notebook-job.
 
+For other things like exchanging key, ssh aliasing&tunneling check [this](https://evcu.github.io/notes/ssh-setup-notes/). 
 ## Jupyter Notebooks with Basic Local Forwarding.
 When you run 
 > jupyter notebook
 
-An notebook is created on the default port, which is `http://localhost:8888/` on my Mac. One can use `--port ****` flag to specify the port of the local host. If we want to run the notebook on a server through ssh, we can use `Local Forwarding` which is the `-L` flag. Lets assume we have a server named  `hostone` defined in `~/.ssh/config/`. For more information about how to do that you can check out my [ssh notes](dummylink).
+a notebook is created on the default port, which is `http://localhost:8888/` on my Mac. One can use `--port ****` flag to specify the port of the local host. If we want to run the notebook on a server through ssh, we can use `Local Forwarding` which is the `-L` flag. Lets assume we have a server named  `hostOne` defined in `~/.ssh/config/`. For more information about how to do that you can check out my [ssh notes](https://evcu.github.io/notes/ssh-setup-notes/)).
 
 ```
-ssh -L 8000:localhost:8888 hostone
+ssh -L 8000:localhost:8888 hostOne
 jupyter notebook --port 8888
 ```
 
-Running the two lines above would start a notebook on the server `hostone` at port 8888. And local forwarding connects the local port 8000 to the port 8888 of the server. 
-
-## SSH Tunneling. 
-Sometimes connecting to a server requires two ssh connections if you are outside of the local network. This was the case when I worked off-campus and wanted to use NYU's clusters. Having two ssh connections makes local forwarding above a little more complicated. Without any tunneling one would need to arrange two local forwarding carefully. Another annoying thing when you work off-campus is that you need to type two ssh connection everytime you wanna open a new shell. Tunneling fixes both of the problems above. This part is inspired from the [link](dummy). 
-
-I will be using NYU HPC off-campus access example to explain tunneling. If you are off-campus one needs to an ssh call to `hpc.nyu.edu` first and than another one to `prince.hpc.nyu.edu`. Lets start with adding following lines to our `~/.ssh/config` file to define our tunnel. 
-
-```
-Host hpc2tunnel
-  HostName hpc.nyu.edu
-  ForwardX11 no
-  LocalForward 8026 prince.hpc.nyu.edu:22
-  LocalForward 8025 dumbo.hpc.nyu.edu:22
-  User ue225
-```
-
-This defines the tunnel, which is nothing but an ssh connection with local forwarding connecting localhost:8026 to `prince.hpc.nyu.edu` on `hpc.nyu.edu`. . (WHHY 22?). Other local forwarding definitions can be defined on the same Host definition. After this when `ssh hpc2tunnel` called our localhost at port 8026 listens `prince.hpc.nyu.edu:22` on `hpc.nyu.edu` therefore we can ssh to our localhost at port 8026 to connect to the prince cluster with one call. Adding the definition below does this for us.
-```
-Host princeOffCampus
-  HostName localhost
-  Port 8026
-  ForwardX11 yes
-  User ue225
-```
-
-After these definitions all you need to do call `ssh hpc2tunnel` and leave it open. Than open as many tabs as you want and use `ssh princeOffCampus` to connect to the server at once. 
+Running the two lines above would start a notebook on the server `hostOne` at port 8888. And local forwarding connects the localhost at port 8000 to the port 8888 of the server. 
 
 - __Running a jupyter notebook on a Slurm cluster__
- 
+Here we need understand ssh forwarding&tunneling. Even though it seems pretty complicated at the beginning, [this](https://unix.stackexchange.com/a/118650) answer explains it pretty well. Great vis!. When a job is started, it runs on a different address and we need to create a tunnel from the job-server to the  cluster we are connecting(the one we submit job in). In our example the cluster is NYU's `prince` and it uses _Slurm_ scheduler. What we need to do is first submit a job, which does the forwarding, starts the jupyter notebook and informs us. The job would be like following (inspired from [here](https://wikis.nyu.edu/display/NYUHPC/Running+Jupyter+on+Prince)). Lets name it `jupyterGPU.job`.
+```
+#!/bin/bash
+#SBATCH --job-name=jupyterTest
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:1
+#SBATCH --mem=8GB
+#SBATCH --time=2:00:00
+
+#Load necessary modules
+module purge
+module load python/intel/2.7.12
+
+#Go to the folder you wanna run jupyter in
+cd $HOME
+
+#Pick a random or predefined port
+#port=$(shuf -i 6000-9999 -n 1)
+port=8765
+#Forward the picked port to the prince on the same port. Here log-x is set to be the prince login node.
+/usr/bin/ssh -N -f -R $port:localhost:$port log-0
+/usr/bin/ssh -N -f -R $port:localhost:$port log-1
+
+#Start the notebook
+jupyter notebook --no-browser --port $port
+```
+
+Than we submit the job
+
+> sbatch run-jupyter.sbatch
+Submitted batch job 953167
+
+When it is completed we have the log named `slurm-953167.out` with output similar to this.
+```
+[I 17:41:05.035 NotebookApp] Writing notebook server cookie secret to /state/partition1/job-953167/jupyter/notebook_cookie_secret
+[I 17:41:06.051 NotebookApp] Serving notebooks from local directory: /home/ue225
+[I 17:41:06.052 NotebookApp] 0 active kernels 
+[I 17:41:06.052 NotebookApp] The Jupyter Notebook is running at: http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11
+[I 17:41:06.052 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+```
+All we need to at this point is to run 
+> ssh -L 8765:localhost:8765 ue225@prince
+
+and copy `http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11` to our browser. 
