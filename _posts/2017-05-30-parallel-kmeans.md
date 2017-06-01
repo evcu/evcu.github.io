@@ -5,6 +5,8 @@ tags: [ml,parallel,mpi]
 category: ml
 excerpt: "OpenMPI implementation of K-Means."
 ---
+Source code can be found in this [repo](https://github.com/evcu/kmeans-openmpi)
+
 # K-means
 K-means is an iterative clustering algorithm, which returns the cluster center given data and #clusters. Openmpi is a message parsing library used for parallel implementations. K-means minimizes the square loss between cluster center and each point belonging to that cluster. We shared the data between processes evenly and decided to communicate the errors to each process at each iteration, such that at the end every process calculates the new clusters. Doing that we have a communication cost in the order of O(cp), where c is total number of clusters and p is total number of processes. The algorithm works as follows:
 
