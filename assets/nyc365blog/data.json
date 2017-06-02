@@ -1076,8 +1076,23 @@
         "high": "nope", 
         "low": "nope", 
         "mood": "0", 
-        "other": "sleepy,clinton hill has 7 colours", 
+        "other": "sleepy,clinton hill has 7 colors", 
         "text": "The day before starting. Seattle seemed to me pretty small."
+    }, 
+    {
+        "date": "2017-05-30", 
+        "high": "firstDay!", 
+        "low": "soLazy", 
+        "mood": "0", 
+        "other": "AmazonEC2windows", 
+        "text": "I woke up pretty early and did some cycling before breakfast. Than the orientation, pretty smooth and than meeting with Ed, looks nice sofar. I did log this late and now I am lazy to talk, but there are waves as usual... I slept before 10."
+    }, 
+    {
+        "date": "2017-06-01", 
+        "high": "1blackfootDay", 
+        "low": "crazyTonsils", 
+        "mood": "0", 
+        "other": "longDay", 
+        "text": "Watched 1st Final Playoff game, no Euroleauge is more real and therefore better. Kevin Durant is so talented. Anyway. I started setting up things and I feel like getting warmed up :) nice huh?"
     }
-
 ]
