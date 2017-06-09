@@ -86,3 +86,20 @@ Host princeOffCampus
 ```
 
 After these definitions all you need to do call `ssh hpc2tunnel` and __leave it open__. Than open as many tabs as you want and use `ssh princeOffCampus` to connect to the server with one call. 
+
+## SSH Folder Mounting
+Another very useful thing that I discovered recently over ssh is mounting a folder in remote server on to your local system and work with the remote folder as if it is in your computer and everything is synced automatically. To do that you need to first install this two packages.
+
+```
+brew cask install Caskroom/cask/osxfuse 
+brew install sshfs
+```
+
+Now we ready to go. `sshfs` needs a symbolic folder to be created so we create that. After that I am mounting the folder(`/home/ue225/lecture1`) on remote server `stampede` to my local folder `/Users/evcu/dummy` as `customName`. On terminal the content of `lecture1` is copied to `dummy` folder, however when you open `Finder` you would see `customName` appears as remote device name. Modified the files as you wish and enjoy the magical sync happening lightning fast. Once you done you can unmount with `umount`.
+
+```
+mkdir /Users/evcu/dummy
+sshfs -p 22 stampede:/home/ue225/lecture1 /Users/evcu/dummy -oauto_cache,reconnect,defer_permissions,noappledouble,negative_vncache,volname=customName,transform_symlinks,follow_symlinks
+ls /Users/evcu/dummy #ls lecture1 folder. 
+umount /Users/evcu/dummy
+```
