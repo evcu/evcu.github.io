@@ -12,6 +12,8 @@ If you are working remotely and connecting to some other machine via ssh all the
 This post explains the following:
 - How to create key-pair and share your public key with the remotes. Such that you can ssh without entering the password each time. This is especially useful when you are running distributed code. 
 - How to create `config` file and create alias for ssh commands. So you can just call `ssh stampede` and you are connected to the machine! 
+- How to do tunneling/forwarding such that you can run jupyter notebook on remote server.
+- How to mount remote folder to your OSX.
 
 
 ## Key-Pair Setup
