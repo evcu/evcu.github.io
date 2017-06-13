@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "365 Days in New York City"
-permalink: /nyc365/
+permalink: /nyc365blog/
 ---
 
 This is the blog **pretty compact**. I am planning to make it better during _the year_. But I should admit it is already _damm good_. **Click** any available square to see the data!
