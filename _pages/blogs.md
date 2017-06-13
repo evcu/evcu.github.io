@@ -6,10 +6,10 @@ header:
   image: /assets/images/blogimg/head.jpg
   caption: March 2016, Mt. Kinabalu, Borneo
 feature_row:
-  - image_path: assets/images/blogimg/nyc365.gif
+  <!-- - image_path: assets/images/blogimg/nyc365.gif
     title: "365 Days of NYC"
     url: nyc365blog
-    excerpt: Every day input from NYC
+    excerpt: Every day input from NYC -->
   - image_path: assets/images/blogimg/ege7d.jpg
     title: "7 Days in Ege"
     url: http://ege7d.tumblr.com/
@@ -21,7 +21,7 @@ feature_row:
   - image_path: assets/images/blogimg/justp.jpg
     title: "Just Panaromas"
     url: http://justpanaroma.tumblr.com/
-    excerpt: Only fascinating panoramas from various travels. 
+    excerpt: Only fascinating panoramas from various travels.
   - image_path: assets/images/blogimg/fromsing.jpg
     title: "From Singapore"
     url: http://fromsingapore.tumblr.com/

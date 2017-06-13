@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "365 Days in New York City"
-permalink: /nyc365blog/
+permalink: /nyc365/
 ---
 
 This is the blog **pretty compact**. I am planning to make it better during _the year_. But I should admit it is already _damm good_. **Click** any available square to see the data!
@@ -34,7 +34,7 @@ This is the blog **pretty compact**. I am planning to make it better during _the
     </tbody>
     </table>
   </article>
-       
+
 
   <script> d3.eesur = {}; //namespace  </script>
   <script src="/assets/nyc365blog/d3_code_heatmap_cal.js"></script>
@@ -43,7 +43,7 @@ This is the blog **pretty compact**. I am planning to make it better during _the
   // render chart
   // *****************************************
   (function() {
-      'use strict'; 
+      'use strict';
       var nestedData;
       var nestedText;
       var parseDate = d3.time.format('%Y-%m-%d').parse;
@@ -96,10 +96,10 @@ This is the blog **pretty compact**. I am planning to make it better during _the
           if (error) return console.warn(error);    
           nestedData = d3.nest()
               .key(function (d) { return parseDate(d.date.split(' ')[0]); })
-              .rollup(function (n) { 
-                  return d3.sum(n, function (d) { 
+              .rollup(function (n) {
+                  return d3.sum(n, function (d) {
                       return d.mood; // key
-                  }); 
+                  });
               })
               .map(data);
           nestedText = d3.nest()
