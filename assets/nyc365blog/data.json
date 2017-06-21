@@ -1232,11 +1232,19 @@
         "text": "Omg I forgot to log for 3 more days, it is not good. But I was so tired this day"
     }, 
     {
-        "date": "2017-06-20", 
+        "date": "2017-06-19", 
         "high": "feelingGood@Bouldering", 
         "low": "nope", 
         "mood": "0", 
         "other": "nope", 
         "text": "bope"
+    }, 
+    {
+        "date": "2017-06-20", 
+        "high": "effectiveProblemSolving , feelingStrong", 
+        "low": "bope", 
+        "mood": "1", 
+        "other": "nope", 
+        "text": "I've fixed some important things at work and was able to get shuttle efficiently. I really enjoy having an effcetive life full of productive stuff and healty active life style. Just like a commercial haha"
     }
 ]
