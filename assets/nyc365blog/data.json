@@ -1224,11 +1224,19 @@
         "text": "I don't wanna dance for a while. Vauv, what a night"
     }, 
     {
-        "date": "2017-06-20", 
+        "date": "2017-06-18", 
         "high": "nope", 
         "low": "hangover", 
         "mood": "0", 
         "other": "moved to UW , met with ErincM , hanging with friends ice cream and stuff", 
         "text": "Omg I forgot to log for 3 more days, it is not good. But I was so tired this day"
+    }, 
+    {
+        "date": "2017-06-20", 
+        "high": "feelingGood@Bouldering", 
+        "low": "nope", 
+        "mood": "0", 
+        "other": "nope", 
+        "text": "bope"
     }
 ]
