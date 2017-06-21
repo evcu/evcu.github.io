@@ -6,5 +6,7 @@ main:
     url: /alg/
   - title: "Machine Learning"
     url: /ml/
+  - title: "DataVis"
+    url: /datavis/
   - title: "Notes"
     url: /notes/

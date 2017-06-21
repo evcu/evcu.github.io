@@ -14,13 +14,13 @@ K-means is an iterative clustering algorithm, which returns the cluster center g
 2. P0 picks initial centers by sampling random point from the data.
 3. For 1:N
     a. Each process calculate closest cluster center for each point and accumulates the residual for each center. We hold the sum of residuals and count of points belonging to that cluster separately to reduce the communication and to be be able to calculate the new centers effortlessly .
-    b. Share residual sum & counts by using `AllReduce`. 
+    b. Share residual sum & counts by using `AllReduce`.
     c. Each process calculates new centers by summing the individual residual sums together and dividing the result by the total count of that cluster (number of points belonging to that cluster)
 
 # Running mpi-code 
 We wrote a python script to generate random points sampled from normal distribution around 9 different points with 0.5 standard deviation. Visualization of a small dataset sampled provided below. The centers are at {(1,-1,0), (1,1,0),(-1,-1,0),(-1,1,0),(0,0,3),(1,-1,6), (1,1,6),(-1,-1,6),(-1,1,6)}.
 
-![points](/assets/images/kmeans_images/points.png) 
+![points](/assets/images/kmeans_images/points.png)
 
 ```python
 python create_data.py 10000 points.dat
@@ -33,21 +33,21 @@ mpirun -np 4 ./k_means 3 10000 9 points.dat 30
 #Center 0 from line 73
 #...
 #centers:
-#-0.967202 0.981146 -0.044941 
+#-0.967202 0.981146 -0.044941
 #....
 #Time elapsed is 0.022455 seconds.
 ```
 
-where `k_means <dimension of a point> <N> <#clusters> <datafile> <#iterations>`. 
+where `k_means <dimension of a point> <N> <#clusters> <datafile> <#iterations>`.
 
 # Results
-I run the openMPI code on the Raspberry Pi-cluster we created and on some big clusters like NYU’s Prince and TACC’s Stampede. I investigated weak and strong scaling on up to 256 nodes. Pi-cluster doesn’t show good weak scaling (from 4 process to 8) and we believe that this behavior is due to the shared resources. From 8 process to 16 pi scales perfectly. K-means scales almost perfectly in Stampede and Prince. 
+I run the openMPI code on the Raspberry Pi-cluster we created and on some big clusters like NYU’s Prince and TACC’s Stampede. I investigated weak and strong scaling on up to 256 nodes. Pi-cluster doesn’t show good weak scaling (from 4 process to 8) and we believe that this behavior is due to the shared resources. From 8 process to 16 pi scales perfectly. K-means scales almost perfectly in Stampede and Prince.
 
 | Weak Scaling | Strong Scaling |
 | ------------ | -------------- |
 ![weak1](/assets/images/kmeans_images/weak1.png) | ![strong1](/assets/images/kmeans_images/strong1.png)|
 
-To be able observe the scaling behaviour better between processes we can normalize the timings by dividing it to their mean value. 
+To be able observe the scaling behaviour better between processes we can normalize the timings by dividing it to their mean value.
 
 | Weak Scaling | Strong Scaling |
 | ------------ | -------------- |

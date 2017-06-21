@@ -1,11 +1,12 @@
 ---
 layout: archive
-permalink: /tags/
-title: "Posts by Tags"
+permalink: /datavis/
+title: "Data Visualization and Big Data"
 author_profile: true
 ---
+
  {% for post in site.posts %}
-   {% if post.tag contains 'python' %}
+   {% if post.categories contains 'datavis' %}
     {% include archive-single.html %}
    {% endif %}
 {% endfor %}
