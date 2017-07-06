@@ -1352,11 +1352,19 @@
         "text": "late entry forgot "
     }, 
     {
-        "date": "2017-07-05", 
+        "date": "2017-07-04", 
         "high": "nope", 
         "low": "nope", 
         "mood": "0", 
         "other": "soSleepy", 
         "text": "got the bbq and another 4th of july in US. This being my second"
+    }, 
+    {
+        "date": "2017-07-05", 
+        "high": "gotUkulele", 
+        "low": "soTired", 
+        "mood": "-1", 
+        "other": "nope", 
+        "text": "I should gather things together. That is for sure"
     }
 ]
