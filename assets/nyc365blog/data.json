@@ -1392,11 +1392,19 @@
         "text": "This was a good day, a day to remember"
     }, 
     {
-        "date": "2017-07-12", 
+        "date": "2017-07-09", 
         "high": "gotAQuickRideBack , BurgerKingMushroom! , gotMyBike", 
         "low": "tired", 
         "mood": "0", 
         "other": "sleep!", 
         "text": "late entry "
+    }, 
+    {
+        "date": "2017-07-12", 
+        "high": "nope", 
+        "low": "nope", 
+        "mood": "0", 
+        "other": "nope", 
+        "text": "dont remember"
     }
 ]
