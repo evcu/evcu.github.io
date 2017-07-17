@@ -1433,18 +1433,10 @@
     }, 
     {
         "date": "2017-07-16", 
-        "high": "", 
-        "low": "", 
-        "mood": "", 
-        "other": "", 
-        "text": ""
-    }, 
-    {
-        "date": "2017-07-16", 
-        "high": "", 
-        "low": "", 
-        "mood": "", 
-        "other": "", 
-        "text": ""
+        "high": "centuryLinkField! , goodJobAtPresentation", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "backHurts", 
+        "text": "O this day was amazing"
     }
 ]
