@@ -1456,7 +1456,7 @@
         "text": "Random thoughts for sleep this time"
     }, 
     {
-        "date": "2017-07-18", 
+        "date": "2017-07-17", 
         "high": "nope", 
         "low": "nope", 
         "mood": "0", 
@@ -1470,5 +1470,13 @@
         "mood": "0", 
         "other": "workedUntil7pm", 
         "text": "Working on the resume-builder, nice, go and build stuff. "
+    }, 
+    {
+        "date": "2017-07-19", 
+        "high": "3b-days-day , bouldering!!", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "eyesAreTickling, gotta do less computer stuff and sleep. ", 
+        "text": "Gotta sleep"
     }
 ]
