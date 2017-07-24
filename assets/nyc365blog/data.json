@@ -1496,11 +1496,19 @@
         "text": "I my got the song with 'why you wanna be someone you don't know'(fisher) got me so bad and I need to dance. "
     }, 
     {
-        "date": "2017-07-23", 
+        "date": "2017-07-22", 
         "high": "mt.rainer , lateNightBoulder , Wellingford", 
         "low": "tired", 
         "mood": "1", 
         "other": "nope", 
         "text": "soo tired"
+    }, 
+    {
+        "date": "2017-07-23", 
+        "high": "CapitolHillBlockParty", 
+        "low": "nope", 
+        "mood": "0", 
+        "other": "burningManCampChange", 
+        "text": "summerIsEnding"
     }
 ]
