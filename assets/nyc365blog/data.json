@@ -1528,11 +1528,19 @@
         "text": "Forgot my kindle today and oo I forgot. My frist bong!"
     }, 
     {
-        "date": "2017-07-26", 
-        "high": "nope", 
+        "date": "2017-07-25", 
+        "high": "zooDay", 
         "low": "nope", 
         "mood": "0", 
         "other": "nope", 
-        "text": "don't remember really! O remember zooDay! and than Ispend the night in my room. People had kareoke in the dorm. Bohemian Rapsody and I think ordered some el-wire-led things"
+        "text": "don't remember really! O remember {zooDay}! and than Ispend the night in my room. People had kareoke in the dorm. Bohemian Rapsody and I think ordered some el-wire-led things"
+    }, 
+    {
+        "date": "2017-07-27", 
+        "high": "morningBouldering , eveningBoating", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "working in between", 
+        "text": "nice, 6+ beers i think 8 drinken!"
     }
 ]
