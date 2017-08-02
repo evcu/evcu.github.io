@@ -1574,5 +1574,13 @@
         "mood": "0", 
         "other": "nope", 
         "text": "gotta do/plan software engineering application process"
+    }, 
+    {
+        "date": "2017-08-01", 
+        "high": "belltown! , hottub", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "nope", 
+        "text": "This evening is my evening and I will read/listen books"
     }
 ]
