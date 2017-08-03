@@ -1582,5 +1582,13 @@
         "mood": "1", 
         "other": "nope", 
         "text": "This evening is my evening and I will read/listen books"
+    }, 
+    {
+        "date": "2017-08-03", 
+        "high": "nope", 
+        "low": "nope", 
+        "mood": "0", 
+        "other": "adafruitPackage , tennis2 ", 
+        "text": "late entry in the morning though. It felt so good when I close my eyes after work:)"
     }
 ]
