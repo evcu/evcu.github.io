@@ -1702,5 +1702,13 @@
         "mood": "1", 
         "other": "lateEntry", 
         "text": "I feel like I started to get more late entries. "
+    }, 
+    {
+        "date": "2017-08-18", 
+        "high": "1", 
+        "low": "1", 
+        "mood": "1", 
+        "other": "1", 
+        "text": "1"
     }
 ]
