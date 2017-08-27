@@ -1752,11 +1752,19 @@
         "text": "walmart is great and this is a late entry"
     }, 
     {
-        "date": "2017-08-26", 
+        "date": "2017-08-23", 
         "high": "dayOfRedwoods!! , tallestTree! , campingUnderRedwoods", 
         "low": "nope", 
         "mood": "1", 
         "other": "35$camp", 
         "text": "This was a great dy I ran a lot along the redwoods and it was a great day full of discovery! Hiked to the tallest tree: Hypernion and Grove of Titans. "
+    }, 
+    {
+        "date": "2017-08-26", 
+        "high": "Highway1,", 
+        "low": "lastdayOfRoadtrip", 
+        "mood": "1", 
+        "other": "nope", 
+        "text": "Finally in SF, quite exiting, and things are just happens sometimes."
     }
 ]
