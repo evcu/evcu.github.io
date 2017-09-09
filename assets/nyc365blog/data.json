@@ -1808,11 +1808,19 @@
         "text": "I am sick and had a great sleep at Mehmet's couch after two nights of car/tent sleeping."
     }, 
     {
-        "date": "2017-09-09", 
+        "date": "2017-09-08", 
         "high": "back2NYC", 
         "low": "soTired&Sick", 
         "mood": "-1", 
         "other": "", 
         "text": "hate moving out and carry stuff, espcially when I am sick and tired. I slept in the plane and I am not gonna eat Chorizo again. We ate with Eren at Palo Alto and I tried to throw it up in the morning and failed to do so. Anyway, it is good to be back"
+    }, 
+    {
+        "date": "2017-09-09", 
+        "high": "NYC!!", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "feelingBetter", 
+        "text": "Had a nice long sleep and met with the friends. Now I am going out to Williamsburg to meet with them. Feeling like I am back gome"
     }
 ]
