@@ -1784,7 +1784,7 @@
         "text": "it was a good trip and beautiful scenery"
     }, 
     {
-        "date": "2017-09-09", 
+        "date": "2017-09-05", 
         "high": "greatMexicanFood, sleepInBed!, tahoeLake", 
         "low": "nope", 
         "mood": "1", 
@@ -1792,11 +1792,19 @@
         "text": "world is small sometimes I feel like and you may drive a mustang in it"
     }, 
     {
-        "date": "2017-09-09", 
+        "date": "2017-09-06", 
         "high": "DevilsPostpile,RainbowFalls,Yosemite!", 
         "low": "tired!", 
         "mood": "1", 
         "other": "nope", 
         "text": "Slept in the car and went to the Mamouth Lakes and took the shuttle and ran and came back and drove and went to the Yosemite. What a great nature! I was happenned to get the Half Dome pass. What a great plan. Hike and stayed at Little Yosemite Valley :)"
+    }, 
+    {
+        "date": "2017-09-09", 
+        "high": "halfDome,Apple&SiliconValley", 
+        "low": "lastDayInWestCoast", 
+        "mood": "1", 
+        "other": "tired like sick", 
+        "text": "I am sick and had a great sleep at Mehmet's couch after two nights of car/tent sleeping."
     }
 ]
