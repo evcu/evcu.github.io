@@ -1862,5 +1862,13 @@
         "mood": "0", 
         "other": "nope", 
         "text": "forgot to log. "
+    }, 
+    {
+        "date": "2017-09-18", 
+        "high": "secretLoftComedy", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "goodNight , 20$goodRoom", 
+        "text": "That was a little unnecessary and one need to be not tired if he is partying"
     }
 ]
