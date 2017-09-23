@@ -1918,5 +1918,13 @@
         "mood": "0", 
         "other": "nope", 
         "text": "late entry hw's suck sometimes"
+    }, 
+    {
+        "date": "2017-09-23", 
+        "high": "eastVillageNight0", 
+        "low": "", 
+        "mood": "1", 
+        "other": "hwDayHomeStay", 
+        "text": "Too much beer 8 at least. Too much. Busy busy busy"
     }
 ]
