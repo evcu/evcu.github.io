@@ -1910,5 +1910,13 @@
         "mood": "0", 
         "other": "", 
         "text": "Dont remember late entry"
+    }, 
+    {
+        "date": "2017-09-23", 
+        "high": "facebookEvent?", 
+        "low": "hwDeadlineRealization", 
+        "mood": "0", 
+        "other": "nope", 
+        "text": "late entry hw's suck sometimes"
     }
 ]
