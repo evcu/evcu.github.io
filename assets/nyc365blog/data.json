@@ -1952,7 +1952,7 @@
         "text": "Watched the new episode of rick and morty and I loved the dryed hoped ale. And  feeling better"
     }, 
     {
-        "date": "2017-10-01", 
+        "date": "2017-09-26", 
         "high": "late", 
         "low": "late", 
         "mood": "0", 
@@ -1960,7 +1960,7 @@
         "text": "dont remember"
     }, 
     {
-        "date": "2017-10-01", 
+        "date": "2017-09-27", 
         "high": "dont remember", 
         "low": "dont remember", 
         "mood": "0", 
@@ -1968,7 +1968,7 @@
         "text": "late"
     }, 
     {
-        "date": "2017-10-01", 
+        "date": "2017-09-28", 
         "high": "late", 
         "low": "late", 
         "mood": "0", 
@@ -1976,11 +1976,19 @@
         "text": "late"
     }, 
     {
-        "date": "2017-10-01", 
+        "date": "2017-09-29", 
         "high": "turkishNight", 
         "low": "nope", 
-        "mood": "0", 
-        "other": "alexLauraUtku Beer", 
+        "mood": "1", 
+        "other": "alexLauraUtku Beer,queensTurkishMarkts", 
         "text": ""
+    }, 
+    {
+        "date": "2017-10-01", 
+        "high": "nope", 
+        "low": "hangover", 
+        "mood": "0", 
+        "other": "lazy", 
+        "text": "lazy"
     }
 ]
