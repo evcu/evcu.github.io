@@ -1966,5 +1966,13 @@
         "mood": "0", 
         "other": "late", 
         "text": "late"
+    }, 
+    {
+        "date": "2017-10-01", 
+        "high": "late", 
+        "low": "late", 
+        "mood": "0", 
+        "other": "late", 
+        "text": "late"
     }
 ]
