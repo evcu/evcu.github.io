@@ -1974,5 +1974,13 @@
         "mood": "0", 
         "other": "late", 
         "text": "late"
+    }, 
+    {
+        "date": "2017-10-01", 
+        "high": "turkishNight", 
+        "low": "nope", 
+        "mood": "0", 
+        "other": "alexLauraUtku Beer", 
+        "text": ""
     }
 ]
