@@ -1955,8 +1955,16 @@
         "date": "2017-10-01", 
         "high": "late", 
         "low": "late", 
-        "mood": "late", 
+        "mood": "0", 
         "other": "late", 
         "text": "dont remember"
+    }, 
+    {
+        "date": "2017-10-01", 
+        "high": "dont remember", 
+        "low": "dont remember", 
+        "mood": "0", 
+        "other": "late", 
+        "text": "late"
     }
 ]
