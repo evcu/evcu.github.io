@@ -2054,5 +2054,13 @@
         "mood": "1", 
         "other": "nope", 
         "text": "good and late entry"
+    }, 
+    {
+        "date": "2017-10-11", 
+        "high": "nope", 
+        "low": "nope", 
+        "mood": "0", 
+        "other": "firstBreakfastVisitor", 
+        "text": "late entry too, and almost marathon time"
     }
 ]
