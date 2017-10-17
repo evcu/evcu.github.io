@@ -2102,5 +2102,13 @@
         "mood": "0", 
         "other": "torontoIsGood", 
         "text": "Random thougts is, I am not sure about some stuff and you should always follow your gut feeling. It is the right thing. Probably. I got my numbers and I am ready to roll. Lets run and stuff. Lets run and stuff... "
+    }, 
+    {
+        "date": "2017-10-16", 
+        "high": "firstMarathon!", 
+        "low": "soTired", 
+        "mood": "0", 
+        "other": "running and driving as torture", 
+        "text": "Marathon is not a joke"
     }
 ]
