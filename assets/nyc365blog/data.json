@@ -2145,10 +2145,10 @@
     }, 
     {
         "date": "2017-10-21", 
-        "high": "1", 
-        "low": "1", 
+        "high": "breakfastTime", 
+        "low": "sleepy", 
         "mood": "1", 
-        "other": "11", 
-        "text": "1"
+        "other": "firstTimeAtHouseOfYes", 
+        "text": "It is good to have fun and dance and get drunk. Maybe not the last one. Massive amount of it and there is no stop button. And it happens, you feel it when it is there and its nice to be at home. "
     }
 ]
