@@ -2144,11 +2144,19 @@
         "text": "first time in NYC, and my room is sooo small. Haha funny. And this is a late entry too"
     }, 
     {
-        "date": "2017-10-21", 
+        "date": "2017-10-20", 
         "high": "breakfastTime", 
         "low": "sleepy", 
         "mood": "1", 
         "other": "firstTimeAtHouseOfYes", 
         "text": "It is good to have fun and dance and get drunk. Maybe not the last one. Massive amount of it and there is no stop button. And it happens, you feel it when it is there and its nice to be at home. "
+    }, 
+    {
+        "date": "2017-10-21", 
+        "high": "", 
+        "low": "slept all day", 
+        "mood": "0", 
+        "other": "", 
+        "text": "Need to start going gym again. pumping irooon haha"
     }
 ]
