@@ -2198,5 +2198,13 @@
         "mood": "1", 
         "other": "dherma", 
         "text": "I love going places and this day I had my trip to DC and was getting ready for the interview"
+    }, 
+    {
+        "date": "2017-10-28", 
+        "high": "hotelNights", 
+        "low": "badInterview", 
+        "mood": "-1", 
+        "other": "-", 
+        "text": "I hate failing stuff and I should keep remind this to myself. I am not afraid of getting failed, but I hate it and I will keep hate ie"
     }
 ]
