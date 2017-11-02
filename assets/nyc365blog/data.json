@@ -2205,7 +2205,7 @@
         "low": "badInterview", 
         "mood": "-1", 
         "other": "-", 
-        "text": "I hate failing stuff and I should keep remind this to myself. I am not afraid of getting failed, but I hate it and I will keep hating it"
+        "text": "I hate failing stuff and I should keep remind this to myself. I am not afraid of getting failed, but I hate it and I will keep hating it. 7DaysLater: I failed and realized sth. people enjoy seeing someone failing and then they can like you"
     }, 
     {
         "date": "2017-10-28", 
@@ -2238,5 +2238,13 @@
         "mood": "-1", 
         "other": "greenwichHalloween", 
         "text": "Whatever dememek icin butun bunlar. Bu cileler ve acilar ve mutluluklar o zaman guzel. Kaybettim. Gene..."
+    }, 
+    {
+        "date": "2017-11-02", 
+        "high": "tennisLessonAtProspectPark", 
+        "low": "", 
+        "mood": "0", 
+        "other": "", 
+        "text": "watching stranger things and 2 episodes per night 45 minutes each."
     }
 ]
