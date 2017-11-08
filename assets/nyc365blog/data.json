@@ -2280,11 +2280,19 @@
         "text": "Went to the gym, lovely night too"
     }, 
     {
-        "date": "2017-11-07", 
+        "date": "2017-11-06", 
         "high": "nope", 
         "low": "nope", 
         "mood": "0", 
         "other": "nope", 
-        "text": "late"
+        "text": "Kevin started the machine and I couldn't sleep. I watched 3 episodes of Stranger Things today. Not feeling proud."
+    }, 
+    {
+        "date": "2017-11-07", 
+        "high": "-", 
+        "low": "-", 
+        "mood": "0", 
+        "other": "", 
+        "text": "Sleeping a little long and then doing homeworks and it rains and boots are nice. I may even get a rain jacket"
     }
 ]
