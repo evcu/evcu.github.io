@@ -2296,11 +2296,19 @@
         "text": "Sleeping a little long and then doing homeworks and it rains and boots are nice. I may even get a rain jacket"
     }, 
     {
-        "date": "2017-11-09", 
-        "high": "breakfast,Uptown", 
+        "date": "2017-11-08", 
+        "high": "breakfast,Uptown,tennisAtHudson", 
         "low": "nope", 
         "mood": "1", 
         "other": "breakfastWithArdiNick", 
-        "text": "I also played tennis at Hudson!! That was amazing. And drank beer with Atakan,Asena"
+        "text": "I played tennis at Hudson!! That was amazing. And drank beer with Atakan,Asena"
+    }, 
+    {
+        "date": "2017-11-09", 
+        "high": "", 
+        "low": "", 
+        "mood": "0", 
+        "other": "", 
+        "text": "I hate getting injured and having stupid things done. I also feel sick and completed homework and slept for an hour and cooked."
     }
 ]
