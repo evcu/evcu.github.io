@@ -2306,9 +2306,17 @@
     {
         "date": "2017-11-09", 
         "high": "", 
-        "low": "", 
+        "low": "pulledHamstring", 
         "mood": "0", 
         "other": "", 
         "text": "I hate getting injured and having stupid things done. I also feel sick and completed homework and slept for an hour and cooked."
+    }, 
+    {
+        "date": "2017-11-10", 
+        "high": "lauraAlexBreakfast", 
+        "low": "", 
+        "mood": "1", 
+        "other": "", 
+        "text": "Finally I feel like more grounded. Yes the terminal crushed and I hate saying or writing things twice. Maybe for that reason you should have one friend. The reason I feel grounded is since I feel like I am more into studying then hanging around. Which reminds me last year and I had nice time today reading research papers. But now just felt a bit insecure about it. You had a good will about research? What happened? Did you get distracted with Software Engineering? Maybe. But it is all good. It will be and should."
     }
 ]
