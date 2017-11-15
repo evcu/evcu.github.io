@@ -2334,5 +2334,13 @@
         "mood": "0", 
         "other": "nflBeersATa2ANDtheOther sportsbar", 
         "text": "I slept som much today. And I didn't feel like doing something. Do I really want to do research? Yes! I can do it! and I want to do it. Maybe one last time!! "
+    }, 
+    {
+        "date": "2017-11-15", 
+        "high": "erringtonFamily", 
+        "low": "tooMuchSleep", 
+        "mood": "1", 
+        "other": "lazy", 
+        "text": "I couldn't log this on time, I slept right after coming from the dinner. It was a lazy day I guess, sleeping and sleeping. And my memory is horrible these days. Maybe I should work on it, or just chill babe"
     }
 ]
