@@ -2336,7 +2336,7 @@
         "text": "I slept som much today. And I didn't feel like doing something. Do I really want to do research? Yes! I can do it! and I want to do it. Maybe one last time!! "
     }, 
     {
-        "date": "2017-11-15", 
+        "date": "2017-11-13", 
         "high": "erringtonFamily", 
         "low": "tooMuchSleep", 
         "mood": "1", 
@@ -2344,11 +2344,19 @@
         "text": "I couldn't log this on time, I slept right after coming from the dinner. It was a lazy day I guess, sleeping and sleeping. And my memory is horrible these days. Maybe I should work on it, or just chill babe"
     }, 
     {
-        "date": "2017-11-15", 
+        "date": "2017-11-14", 
         "high": "greatNightWithC", 
         "low": "", 
         "mood": "1", 
         "other": "girlsAroundPaladium", 
         "text": "It is nice to look someone into the eyes and other stuff. Then you may feel like satisfied and maybe then you get exited about other things like science, life or I don't know: things"
+    }, 
+    {
+        "date": "2017-11-15", 
+        "high": "", 
+        "low": "sudokuFailure", 
+        "mood": "0", 
+        "other": "", 
+        "text": "I was eager to do the sudoku hw today and then I spent too much time on the sequential code and finally realized that my solution is not correct. Spent all my evening on that. Maybe I should have a security valve, that stops whenever the brain is busy. Don't know"
     }
 ]
