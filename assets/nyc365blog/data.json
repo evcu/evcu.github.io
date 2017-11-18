@@ -2363,8 +2363,16 @@
         "date": "2017-11-16", 
         "high": "onTheTrackDay", 
         "low": "feelingSick", 
-        "mood": "1", 
+        "mood": "0", 
         "other": "", 
         "text": "My throat feel sore. Just stay calm and it will dissapear. Right? "
+    }, 
+    {
+        "date": "2017-11-17", 
+        "high": "effective! , amazonNYC,secondGraderPosition,worked", 
+        "low": "feelingSick", 
+        "mood": "1", 
+        "other": "", 
+        "text": "Had a long night in the bed. Feeling sick on my throat. Hate this. But I had an effective day today. Coding alot of cuda haha."
     }
 ]
