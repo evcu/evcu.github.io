@@ -2449,6 +2449,14 @@
     }, 
     {
         "date": "2017-11-27", 
+        "high": "tennis", 
+        "low": "", 
+        "mood": "1", 
+        "other": "", 
+        "text": "late entry"
+    }, 
+    {
+        "date": "2017-11-28", 
         "high": "study&DoEr", 
         "low": "", 
         "mood": "1", 
@@ -2457,10 +2465,10 @@
     }, 
     {
         "date": "2017-12-02", 
-        "high": "tennis", 
+        "high": "citiBikeWorkout2upperEastSide , effectiveGPUprojectCoding", 
         "low": "", 
         "mood": "1", 
         "other": "", 
-        "text": "late entry"
+        "text": "late enty"
     }
 ]
