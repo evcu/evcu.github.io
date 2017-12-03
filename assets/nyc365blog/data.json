@@ -2478,5 +2478,13 @@
         "mood": "1", 
         "other": "", 
         "text": "unnecessary evening beers "
+    }, 
+    {
+        "date": "2017-12-02", 
+        "high": "secretLoftComedy,brazilianSteakHouse,gym++", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "nope", 
+        "text": "Those cakes are apperantly trippy. "
     }
 ]
