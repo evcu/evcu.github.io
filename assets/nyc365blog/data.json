@@ -2486,5 +2486,13 @@
         "mood": "1", 
         "other": "nope", 
         "text": "Those cakes are apperantly trippy. "
+    }, 
+    {
+        "date": "2017-12-02", 
+        "high": "breakfastWithC", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "studyyy", 
+        "text": "study is my religion?"
     }
 ]
