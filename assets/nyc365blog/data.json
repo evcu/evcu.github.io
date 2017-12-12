@@ -2552,11 +2552,19 @@
         "text": "It is time to study"
     }, 
     {
-        "date": "2017-12-11", 
+        "date": "2017-12-10", 
         "high": "manti!", 
         "low": "", 
         "mood": "0", 
         "other": "umutLeft", 
         "text": "hard2study after travelling. "
+    }, 
+    {
+        "date": "2017-12-11", 
+        "high": "amazonNYCinterview", 
+        "low": "", 
+        "mood": "1", 
+        "other": "xianFamousNoddle", 
+        "text": "Need to become a machine for a week"
     }
 ]
