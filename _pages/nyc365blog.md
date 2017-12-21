@@ -17,19 +17,20 @@ This is the blog **pretty compact**. I am planning to make it better during _the
     <table id="mytable" width="100%">
     <tbody>
     <tr>
-    <td width="33%" ><div id="mytablediv" >
-    <span id="day_hl">Highlights</span></div></td>
-    <td width="33%"><div id="mytablediv">
-    <span id="day_ll">Lowlights</span></div></td>
-    <td width="34%"><div id="mytablediv" >
-    <span id="day_ot">Other</span></div></td>
-    </tr>
-    <tr>
-    <td colspan="2">
+    <td colspan="3"><div id="mytablediv" >
+    <img style="display:block;" src="/assets/images/blogimg/nyc365.gif" id="day_pic"></div></td>
+    <td colspan="3">
     <div id="mytablediv">
      <span id="day_rt">Random thoughts</span></div></td>
-    <td width="34%"><div id="mytablediv" >
-    <img src="/assets/images/blogimg/nyc365.gif" id="day_pic"></div></td>
+  
+    </tr>
+    <tr>
+    <td colspan="2" width="33%" ><div id="mytablediv" >
+    <span id="day_hl">Highlights</span></div></td>
+    <td colspan="2" width="33%"><div id="mytablediv">
+    <span id="day_ll">Lowlights</span></div></td>
+    <td colspan="2" width="34%"><div id="mytablediv" >
+    <span id="day_ot">Other</span></div></td>
     </tr>
     </tbody>
     </table>
