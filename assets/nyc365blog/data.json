@@ -2646,5 +2646,13 @@
         "mood": "1", 
         "other": "late", 
         "text": ""
+    }, 
+    {
+        "date": "2017-12-23", 
+        "high": "westVillageNightWithJos , goodGym", 
+        "low": "nope", 
+        "mood": "1", 
+        "other": "veryNiceWheather", 
+        "text": "I was happy today and this is fourth day in a row"
     }
 ]
