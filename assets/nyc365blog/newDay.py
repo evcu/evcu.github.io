@@ -14,9 +14,9 @@ newel[u'text'] = unicode(raw_input("Random Thoughts:\n"))
 
 print(newel)
 with open(path,'r') as data_file:
-    print 'Successfuly read'
+    print('Successfuly read')
     data = json.load(data_file)
     data.append(newel)
 with open(path,'w') as data_file:
     data_file.write(json.dumps(data, sort_keys=True, indent=4))
-    print 'Successfuly written'
+    print('Successfuly written')

@@ -2648,11 +2648,19 @@
         "text": ""
     },
     {
-        "date": "2017-12-22", 
+        "date": "2017-12-22",
         "high": "westVillageNightWithJos , goodGym",
         "low": "nope",
         "mood": "1",
         "other": "veryNiceWheather",
         "text": "I was happy today and this is fourth day in a row"
+    },
+    {
+        "date": "2017-12-23",
+        "high": "work&party",
+        "low": "nope",
+        "mood": "1",
+        "other": "",
+        "text": "Too much a. again"
     }
 ]
