@@ -2670,5 +2670,13 @@
         "mood": "1",
         "other": "",
         "text": "Couldn't get nice outcomes, but it was a good Christmas."
+    },
+    {
+        "date": "2017-12-25",
+        "high": "firstMovieInNYC,bike2williamsburg",
+        "low": "tooMuchSleep",
+        "mood": "0",
+        "other": "playedRadioheadInTheBar",
+        "text": "Can you measure life satisfaction amount of alarms you hear in a day?"
     }
 ]
