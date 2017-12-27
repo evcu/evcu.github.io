@@ -7,6 +7,7 @@ excerpt: "Implementation of network pruning using torch."
 ---
 As my final project for the Computer Vision class thought by Rob Fergus in Fall 2016, I got the project of implementing compression ideas of Song Han presented in paper `Learning both Weights and Connections for Efficient Neural Networks`. Let's start with a brief summary of my-work and results.
 
+### Get the code at [torch-pruner](https://github.com/evcu/cv2016/tree/master/project)
 
 No | Section | Work-Done | Result
 :-:|:-:|:-:|:-:
@@ -34,7 +35,7 @@ First I've started with `Pruner` module. After couple of iterations I've decided
 ### Implementing CUDA
 I didn't need to implement CUDA for other homeworks, but this time I wanted to learn how to do it and see the difference. I've realized that it is pretty straight forward: a generic function `isCuda(inp)`which calls `inp:cuda()` if cuda flag is provided does the necessary work. I've got a 2x speedup on Lenet-5 model compare to its multithreaded version on NYU's HPC.
 
-### Layer-wise Sensitivity 
+### Layer-wise Sensitivity
 I've played with the code and got some initial results by just masking according to the absolute value of the weights and got similar, sometimes better results with around 50% pruning of each layer without retraining. The individual sensitivity of each layer is below. The sensitivities are calculated in an iterative way (More on this is in the next section) by pruning one layer at a time in an iterative way (10-20 iterations).
 
 
@@ -44,7 +45,7 @@ conv1-fcc1-fcc3 | conv2-fcc2
 ![conv1](/assets/images/network_pruning/plots/lenet5-fcc1.png) | ![conv1](/assets/images/network_pruning/plots/lenet5-fcc2.png)
 ![conv1](/assets/images/network_pruning/plots/lenet5-fcc3.png) |
 
-`w/o` flag represents accurcies without reatraining and the others lines represent results with different retraining epochs. For example `w/3` is retraining with 3 epochs. Even though the sampling frequency of the graphs make it sometimes hard to compare(I calculated the accurcies for 20 or 10 values of the pruning factor), one can clearly see that retraining of the model provides a significant margin at final compression rate achievable. Another important observation is (different then the paper) there is no significant variation between layers in terms of sensitivity. One last observation is 3 epoch seems enough for retraining the network. 
+`w/o` flag represents accurcies without reatraining and the others lines represent results with different retraining epochs. For example `w/3` is retraining with 3 epochs. Even though the sampling frequency of the graphs make it sometimes hard to compare(I calculated the accurcies for 20 or 10 values of the pruning factor), one can clearly see that retraining of the model provides a significant margin at final compression rate achievable. Another important observation is (different then the paper) there is no significant variation between layers in terms of sensitivity. One last observation is 3 epoch seems enough for retraining the network.
 
 ### Iterative Pruning vs One-Shot Pruning
 In this section I compare iterative pruning with one-shot pruning. In iterative pruning the network or layer is pruned in N steps to its target pruning rate $$c \in [0,1]$$, such that at each step $$\frac{c}{N}$$ of all parameters are pruned. Whereas in one-shot pruning $$c$$ fraction of parametes are pruned immediately. I performed the sensitivity tests(which are done in an iterative manner) in this context again with 3 epoch retraining after each iteration.
@@ -57,10 +58,10 @@ conv1-fcc1-fcc3 | conv2-fcc2
 
 An interesting result is even though at some layers(first and last) it provides better results, at intermediate layers iterative prunning doesn't have a significant superior performance compare to one-shot pruning. However it looks like there is a slight gain if iterative approach used. In the 2-next section I will investigate the effect of one-shot pruning when whole layers are pruned like in a more realistic scenario.
 
-### Implementing various Pruning Functions 
-There are 2 main methods proposed in the literature as pruning metrics. 
+### Implementing various Pruning Functions
+There are 2 main methods proposed in the literature as pruning metrics.
 
-- Taylor series based approximations of $$\delta E$$: 
+- Taylor series based approximations of $$\delta E$$:
     - Using 1st order approximation: `-pruner taylor1`
     - Using 2nd order diagonal approximation: `-pruner taylor2`
     - Combining these two `-pruner taylor12`
@@ -68,10 +69,10 @@ There are 2 main methods proposed in the literature as pruning metrics.
     - L1 based `-pruner l1`
     - L2 based `-pruner l2`
 - Emprical measure, calculated by pruning each weight one by one and calculating test error for each weight. Then the weights are pruned in the reverse order `-pruner emp`
-    
-Once start implementing those functionalities, I encountered with some problems. Torch doesn't have a straight way of implementing L1 and L2. I implemented L2 with weight decay first, however didn't get superior results to magnitude based pruning. The constant factors were decreasing over training, but it was quite slow and kind of uniform among weights. 
 
-Then I tried to implement `taylor2`, however Torch's experimental `hessian` module didn't worked out. I implemented straight forward `taylor1`, which is bascially gradWeight*weight and didn't get good results. At this point I decided to go with magnitude based default pruning. 
+Once start implementing those functionalities, I encountered with some problems. Torch doesn't have a straight way of implementing L1 and L2. I implemented L2 with weight decay first, however didn't get superior results to magnitude based pruning. The constant factors were decreasing over training, but it was quite slow and kind of uniform among weights.
+
+Then I tried to implement `taylor2`, however Torch's experimental `hessian` module didn't worked out. I implemented straight forward `taylor1`, which is bascially gradWeight*weight and didn't get good results. At this point I decided to go with magnitude based default pruning.
 
 Later I've also implemented emprical scoring of weights, where for each weight I measure the Error of the module when those weight is set to 0. The weights are pruned in decreasing order, since the weights with high Error would also have high $$\delta E=E_{end}-E_{initial}$$, since $$E_{initial}$$ is same for all weights. Since calculating those scores are a slow process, due to the evaluation on the test set, I've performed my experiment on the first convolutional layer `conv-1`, which has 150 parameters(without biases).
 
@@ -79,9 +80,9 @@ Later I've also implemented emprical scoring of weights, where for each weight I
 
 Even though the graph for emprical pruning is sampled with 5 values due to high computation cost it requires, this experiment convinced me that magnitude based pruning works good enough. Therefore I focused on how to prune a network with minimum hyper-parameters, such that one can apply the idea easily to any network.
 
-An important point here to made is, all of the methods above try to approximate or optimize according to the loss function function. However in `Optimal Brain Damage` paper and during my experiments, I've realized that the relationship between loss function and generalization error is not parallel. In other words while trying to pick the less important weights, one doesn't neceserally get best generalization error. 
+An important point here to made is, all of the methods above try to approximate or optimize according to the loss function function. However in `Optimal Brain Damage` paper and during my experiments, I've realized that the relationship between loss function and generalization error is not parallel. In other words while trying to pick the less important weights, one doesn't neceserally get best generalization error.
 
-### Model-wide Pruning Experiments and Results 
+### Model-wide Pruning Experiments and Results
 Overall pruning rate is basically set by the layers who has the majority of the parameters. In our model it is the first fully connected layer. Therefore I focused pruning that layer aggresively, whereas I set more lossy rates for other "small" layers. Parameter breakdown and target pruning rates are given.
 
 **Layer** | conv1 | conv2 | fcc1 | fcc2| fcc3  
@@ -89,27 +90,25 @@ Overall pruning rate is basically set by the layers who has the majority of the 
 **Parameters**|150|14400|288000|10080|840
 **Pruning Factors**|0.5|0.7|0.95|0.7|0.5
 
-First I did 40 iteration 1 epoch retraining pruning on the network without an accuracy-loss limit. I've got 0.99% error, which is 0.03% percent accuracy loss. The ratio of pruned parameters of all model is almost 92.9%. This number doesn't involve the bias terms, however total number of bias parameters shouldn't change this ratio significantly. I repeated same strategy for two accuracy-loss limit 0.5% and 1%. However the final result is below these thresholds I got same result as the first one. 
+First I did 40 iteration 1 epoch retraining pruning on the network without an accuracy-loss limit. I've got 0.99% error, which is 0.03% percent accuracy loss. The ratio of pruned parameters of all model is almost 92.9%. This number doesn't involve the bias terms, however total number of bias parameters shouldn't change this ratio significantly. I repeated same strategy for two accuracy-loss limit 0.5% and 1%. However the final result is below these thresholds I got same result as the first one.
 
-As I mentioned I decided to try-out non-iterative prunning strategy and see the effect of iterating pruning in model-scale. In this context I've pruned our initial network with different prunning iterations and retraining epochs keeping the layer-wise prunning factors constant. At each prunning iterations a for loop visits all layers and prune a portion of connections and then the model tuned with retraining. For the labels below `x/y` x represents number of pruning iterations, whereas y represents number of retraining epochs performed after each pruning iteration. To be fair the overall number of retraining epochs during prunning $$x*y$$ kept around $$40$$ for different experiments. The generalization erros with increasing total number of parameters are plotted below. 
+As I mentioned I decided to try-out non-iterative prunning strategy and see the effect of iterating pruning in model-scale. In this context I've pruned our initial network with different prunning iterations and retraining epochs keeping the layer-wise prunning factors constant. At each prunning iterations a for loop visits all layers and prune a portion of connections and then the model tuned with retraining. For the labels below `x/y` x represents number of pruning iterations, whereas y represents number of retraining epochs performed after each pruning iteration. To be fair the overall number of retraining epochs during prunning $$x*y$$ kept around $$40$$ for different experiments. The generalization erros with increasing total number of parameters are plotted below.
 
 ![conv1](/assets/images/network_pruning/plots/lenet5-prunstrategy.png)
 
-Interestingly iterative prunning doesn't cause superior results compare to one-time prunning again as it was in layer-wise pruning experiment. I go my best result with 1-time prunning followed by 20 retraining epoch and got 0.94%, which is 0.02% better then the first result I got. 
+Interestingly iterative prunning doesn't cause superior results compare to one-time prunning again as it was in layer-wise pruning experiment. I go my best result with 1-time prunning followed by 20 retraining epoch and got 0.94%, which is 0.02% better then the first result I got.
 
 ### Next Steps and Conclusion
 Due to the technical work required to implement underlying compressing mechanism, I've focused on pruning connections and performed various experiments about the method of pruning. I've got even better compression rate then it is given in the original paper. However there are some slight differences between Lenet-5 models I think pruned. I think my initial training was not good as theirs. However I believe my main contribution is:
 
 - A torch implementation of network pruning.
-- To show that magnitude-based prunning works actually quite well. 
+- To show that magnitude-based prunning works actually quite well.
 - Layer-wise sensitivity difference doesn't seem like true.
 - Iterative prunning is not significantly better then non iterative one.
 
-I would like to conclude the report with the weight histograms of the pruned network which gave the best result mentioned in the previous section. As can be seen, the parameters follow two gaussian-like clusters as presented in the original paper and I am sure that one can go further and implement weight sharing/quantization and huffman-coding and get overall compression rates around 40x. I am planning to this by implementing it and necessary modules in torch. 
+I would like to conclude the report with the weight histograms of the pruned network which gave the best result mentioned in the previous section. As can be seen, the parameters follow two gaussian-like clusters as presented in the original paper and I am sure that one can go further and implement weight sharing/quantization and huffman-coding and get overall compression rates around 40x. I am planning to this by implementing it and necessary modules in torch.
 
 ### Bonus: Last Minute Results
-The idea of training an over-paramatized model first and then prunning reported as a 'natural' way of learning. However I am not sure this is true. Therefore I've trained my model on dataset while pruning some percentage of parameters at each iteration. This is done by starting with a fresh-initiliazed model and performing same prune-retrain iterations. The results are promising, I got 1.05%(-0.09%) percent accuracy with 40 prunning iterations and 1 retraining epoch after each prunning iteration. Results with different `iter/epoch` combinations result in similar generalization error. I found this really interesting and promising. This process could decrease training and running time if sparse tensors are implemented. 
+The idea of training an over-paramatized model first and then prunning reported as a 'natural' way of learning. However I am not sure this is true. Therefore I've trained my model on dataset while pruning some percentage of parameters at each iteration. This is done by starting with a fresh-initiliazed model and performing same prune-retrain iterations. The results are promising, I got 1.05%(-0.09%) percent accuracy with 40 prunning iterations and 1 retraining epoch after each prunning iteration. Results with different `iter/epoch` combinations result in similar generalization error. I found this really interesting and promising. This process could decrease training and running time if sparse tensors are implemented.
 
 ![conv1](/assets/images/network_pruning/plots/lenet5-pruntrain.png)
-
-### Get the code at [torch-pruner](https://github.com/evcu/cv2016/tree/master/project)
