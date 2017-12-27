@@ -2678,5 +2678,13 @@
         "mood": "0",
         "other": "playedRadioheadInTheBar",
         "text": "Can you measure life satisfaction amount of alarms you hear in a day?"
+    },
+    {
+        "date": "2017-12-27",
+        "high": "earlyWakeUp",
+        "low": "",
+        "mood": "1",
+        "other": "saigonPho",
+        "text": "nice nutrition and work and workout. Perfect day?"
     }
 ]
