@@ -1,10 +1,10 @@
 import json
-from datetime import date
+from datetime import date,timedelta
 path = '/Users/evcu/GitHub/evcu.github.io//assets/nyc365blog/data.json'
 
 data = {}
 newel = {}
-newel[u'date'] = str(date.today())
+newel[u'date'] = str(date.today()-timedelta(days=365))
 newel[u'mood'] = str(input("Enter mood -1/0/1:\n"))
 print(newel)
 newel[u'high'] = str(input("Highlights\n"))
