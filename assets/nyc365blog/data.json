@@ -2742,5 +2742,13 @@
         "mood": "1",
         "other": "sleepy",
         "text": "I felt string today mentally."
+    },
+    {
+        "date": "2017-01-03",
+        "high": "dental,swim25min,grocery",
+        "low": "",
+        "mood": "0",
+        "other": "1hrExtraSleep",
+        "text": "I feel a little sick today"
     }
 ]
