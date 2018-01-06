@@ -2750,5 +2750,13 @@
         "mood": "0",
         "other": "1hrExtraSleep",
         "text": "I feel a little sick today"
+    },
+    {
+        "date": "2017-01-05",
+        "high": "snow!, readingBookInTheTrain, slidingBike",
+        "low": "nope",
+        "mood": "1",
+        "other": "nope",
+        "text": "late"
     }
 ]
