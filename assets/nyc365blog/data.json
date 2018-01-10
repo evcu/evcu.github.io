@@ -2788,7 +2788,15 @@
         "high": "sleep,gym,gopro6",
         "low": "nope",
         "mood": "0",
-        "other": "It got warmer today, and in two days I took off. I need to study tomorrow. Do the plan ",
-        "text": ""
+        "other": "",
+        "text": "It got warmer today, and in two days I took off. I need to study tomorrow. Do the plan "
+    },
+    {
+        "date": "2017-01-09",
+        "high": "gettingReady,gymStudy",
+        "low": "nope",
+        "mood": "1",
+        "other": "lapain new visited",
+        "text": "I did som sausages today with tomato sauce, gonna do it again this morning. Exiting about the trip :):)"
     }
 ]
