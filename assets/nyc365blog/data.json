@@ -2808,11 +2808,19 @@
         "text": "MX is like Istanbul and it is great to be here! It is great to discover"
     },
     {
-        "date": "2017-01-12",
+        "date": "2017-01-11",
         "high": "bikingInMX,ArcheologyMuseum,greatLunchDinner",
         "low": "wannaBikeFast",
         "mood": "1",
         "other": "manyMoreCommonThings",
         "text": "I like city! very much. very much"
+    },
+    {
+        "date": "2017-01-12",
+        "high": "TeotihuacanAndBaloon,greatStreetTaco",
+        "low": "feelingALittleSick",
+        "mood": "1",
+        "other": "",
+        "text": "Naps are great and being on travel too, lets discover and have fun huh?"
     }
 ]
