@@ -2800,11 +2800,19 @@
         "text": "I did som sausages today with tomato sauce, gonna do it again this morning. Exiting about the trip :):)"
     },
     {
-        "date": "2017-01-12",
+        "date": "2017-01-10",
         "high": "MX! , firstGreatMexicanDinnerAndNight",
         "low": "",
         "mood": "1",
         "other": "2hoursOfLumosityPlaying ",
         "text": "MX is like Istanbul and it is great to be here! It is great to discover"
+    },
+    {
+        "date": "2017-01-12",
+        "high": "bikingInMX,ArcheologyMuseum,greatLunchDinner",
+        "low": "wannaBikeFast",
+        "mood": "1",
+        "other": "manyMoreCommonThings",
+        "text": "I like city! very much. very much"
     }
 ]
