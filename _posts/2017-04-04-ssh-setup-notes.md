@@ -107,9 +107,10 @@ umount /Users/evcu/dummy
 ```
 
 ## Runnig commands on logout
-I should refer to [this](https://en.wikipedia.org/wiki/Nohup) wikipedia page. You can basically start a program and leave by adding nohup to the beginning of your command. This would prevent sending the HUP signal on sign-out. 
+I should refer to [this](https://en.wikipedia.org/wiki/Nohup) wikipedia page. You can basically start a program and leave by adding nohup to the beginning of your command. This would prevent sending the HUP signal on sign-out.
 
 ```bash
 nohup ./myprogram > foo.out 2> foo.err < /dev/null &
 exit
 ```
+Creating a background task on bash would generate an integer like `[1] 3533` You can use first number to kill the process `kill %1` or `kill 3533`. If you forget the PID of the process you can run `ps -ef | grep myprogram`
