@@ -10,7 +10,7 @@ locale                   : "en"
 title                    : "evcu"
 title_separator          : "|"
 name                     : "Utku Evci"
-description              : "Personal webpage of a guy from Turkey named Utku Evci. Recently doing his M.Sc. at NYU Courant."
+description              : "Personal webpage of a guy from Turkey named Utku Evci. Recently @Montreal, 2018 Google AI Residency Program."
 url                      : "https://evcu.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "evcu/evcu.github.io"
@@ -66,7 +66,7 @@ og_image                 : "/assets/images/evcu.png"
 social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
-  links: 
+  links:
     - "https://twitter.com/utkuevcu"
     - "https://facebook.com/utkuevc"
     - "https://instagram.com/utkuevci"
@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "Utku Evci"
   avatar           : "/assets/images/ue.jpg"
-  bio              : "<p>An other engineer</p> <p></p> <p>A guy from Turkey doing his M.Sc. at NYU Courant. I did two research internships at <a href=http://iig.epfl.ch/>EPFL</a> and <a href=http://ilps.science.uva.nl/>UvA</a>."
-  location         : "Brooklyn, NY"
+  bio              : "Feed your head"
+  location         : "Montreal"
   email            : ue[224+1]@nyu.edu
   uri              :
   bitbucket        :
