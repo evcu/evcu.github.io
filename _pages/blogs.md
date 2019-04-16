@@ -30,6 +30,10 @@ feature_row:
     title: "Running Cities"
     url: http://runningcities.tumblr.com/
     excerpt: A runner blog about running as a tourist.
+  - image_path: assets/images/blogimg/ibeen.png
+    title: "Places I've been"
+    url: https://drive.google.com/open?id=1sxQ9jGwR5fsDLY3cvSaCAstlbHw&usp=sharing
+    excerpt: High-level, layered map, showing the places I have been.
 ---
 
 I've always been a decent blogger. It was a way for me to record the days I traveled and the way I used to be. They are written for myself mainly, to remind me 'how was it' or 'how was I'. Whenever I start reading those blogs I' remember those days quite clearly
