@@ -34,7 +34,7 @@ f_list2=[]
 for i in range(5):
     f_list2.append(lambda a,i=i: print(a*i,end=','))
 
-for f in f_list: f(5)  #prints: 0,5,10,15,20,
+for f in f_list2: f(5)  #prints: 0,5,10,15,20,
 
 ```
 
