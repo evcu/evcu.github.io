@@ -16,15 +16,15 @@ I realized how easy it would be to implement sparse networks if the building blo
 ![png](/assets/images/micrograd_sparse/output_19_0.png)
 
 ### Plan
-- Checkout Andrej's implementation of `Value` [here](https://github.com/evcu/micrograd/blob/sparse/micrograd/engine.py). This is the building block of the learning algorithm and it is the simplest autograd engine I've seen.
-- Checkout the [demo](https://github.com/evcu/micrograd/blob/sparse/demo.ipynb). At the end of this notebook, we would do the same experiment using sparse networks.
-- We implement Sparse network (SparseMLP) which uses the SparseLayer which uses the SparseNeuron.
+- Checkout Andrej's implementation of `Value` [here](https://github.com/evcu/micrograd/blob/sparse/micrograd/engine.py). This is the building block of back-propagation algorithm and it is the simplest autograd engine I've seen.
+- Checkout the [demo](https://github.com/evcu/micrograd/blob/sparse/demo.ipynb). At the end of this notebook, we would repeat the same experiment using sparse networks.
+- We will implement Sparse network (SparseMLP) which uses the SparseLayer which uses the SparseNeuron.
 - Finally we will train our network on a binary classification task. We will observe the failure of regular sparse training and we see how RigL can be used to improve performance considerably.
 
 ### Defining Sparse Network
 Neurons in a layer usually connects to the every neuron in the previous layer. This is because how we define them. We call such networks **dense** (although I would argue they are sparse, too since they are not connecting bunch of other neurons in other layers.).
 
-On the other hand sparse networks connect to only a fraction of the neurons in the previous layers and the sparsity of a neuron can be defined as the fraction of neurons it *doesn't* connect. So number of connections in a sparse neuron would be defined by,
+On the other hand sparse neurons connect to only a fraction of the neurons in the previous layers and the sparsity of a neuron can be defined as the fraction of neurons it is not connected. So number of connections in a sparse neuron would be defined by,
 
 $$\#connections = \lfloor(1 - sparsity) * \#input\_neurons\rfloor$$
 
@@ -71,7 +71,7 @@ class SparseNeuron(Module):
 ```
 
 ### Defining Larger Building Blocks and Loss
-Next we define `SparseLayer`, `SparseMLP` and the `loss` function. Nothing special here expect the regular neurons are replaced by sparse neurons. `SparseMLP` expects the list of sparsities in addition to the hidden layer sizes.
+Next we define `SparseLayer`, `SparseMLP` and the `loss` function. Nothing special here except the regular neurons are replaced by sparse neurons. `SparseMLP` expects a list of sparsities in addition to the hidden layer sizes.
 
 
 ```python
@@ -137,11 +137,11 @@ def loss(model, batch_size=None, dense_grad=False):
 ```
 
 # Our Sparse Network
-Here we create a sparse network. Note that there is only 2 input dimensions and we would like first set of neurons (input layer) to use both of the input dimensions. Therefore we set the sparsity to 0 for the first layer. Last layer also has a single output neuron, therefore we set its sparsity to a lower value than the middle layer.
+Here we create a sparse network. Note that there is only 2 input dimensions and we want to use them both. Therefore we set the sparsity to 0 for the first layer. Last layer has a single output neuron, therefore we set its sparsity to a lower value than the middle layer.
 
 These sparsities are selected arbitrarily, feel free to play with them.
 
-Let's create this model and train it.
+Let's create this model and train it with SGD.
 
 
 ```python
@@ -206,19 +206,19 @@ print(f"step {k} loss {total_loss.data}, accuracy {acc*100}%")
 
 
 # Difficulty of Training Sparse Networks.
-Sparse training is difficult. This has been by many, but probably popularized by the [Lottery Ticket Hypothesis](https://arxiv.org/abs/1803.03635) work of Jonathan. [RigL](https://arxiv.org/abs/1911.11134) is one of the recent dynamic training algoritms along with the others ([SNFS](https://arxiv.org/abs/1907.04840), [SET](https://www.nature.com/articles/s41467-018-04316-3), [DSR](https://arxiv.org/abs/1902.05967)). RigL improves the training of sparse networks by changing how the neurons are wired during the training.
+Sparse training is difficult. This has been reported by many, including the [Lottery Ticket Hypothesis](https://arxiv.org/abs/1803.03635). [RigL](https://arxiv.org/abs/1911.11134) is one of the recent dynamic training algorithms (others include ([SNFS](https://arxiv.org/abs/1907.04840), [SET](https://www.nature.com/articles/s41467-018-04316-3), [DSR](https://arxiv.org/abs/1902.05967)). It changes how the neurons are wired during the training dynamically and by doing so improves the training of sparse networks.
 
-RigL takes the model as input and updates its connections and give better results than static training:
+Here is a summary of how RigL updates connections:
 
-1) Calculate dense gradient, which enables us to obtain the gradient of non-existing connectons using `SparseNeuron.zero_ws`.
+1) Calculate dense gradient, which enables us to obtain the gradient of non-existing connections using `SparseNeuron.zero_ws`.
 
 2) For each layer obtain existing and candidate parameters.
 
-3) If no parameters to update, skip continue with the next layer.
+3) If no parameters to update, continue with the next layer.
 
-4) Obtain candidate connections with highest gradient magnitude.
+4) Pick candidate connections with highest gradient magnitude.
 
-5) Obtain existing connections with lowest magnitude.
+5) Pick existing connections with lowest magnitude.
 
 6) Replace least magnitude connections with new ones that have high expected gradient.
 
@@ -310,11 +310,11 @@ for k in range(N_TOTAL):
 
 
 ## Results
-RigL obtains 0.031 loss with 100% acc vs static training stucks  at 0.287 with 88% acc. Visualizing the connectivity of the model after the RigL training reveals interesting insights. We see that the available connections are used by few important neurons and many neurons internal neurons are discarded.
+RigL obtains 0.031 loss with 100% acc vs static training obtains 0.287 with 88% acc.
 
-For example below neurons `2_3` and `2_1` has the most of the connections of the second layer. Other active neurons (`2_4` and `2_2`) has only 1 incoming connections. All the remaining neurons are dead, which means they don't have any incoming or outgoing connections, therefore they can't effect the output. We can safely remove such dead units. Let's do that.
+Visualizing the connectivity of the model after the RigL training reveals interesting insights. We see that the available connections are used by few important neurons and many neurons internal neurons are discarded.
 
-
+For example below, neurons `2_3` and `2_1` have the most of the connections of the second layer. Other active neurons (`2_4` and `2_2`) have a single incoming connections. All the remaining neurons are dead, which means they don't have any incoming or outgoing connections and therefore they can't effect the output. We can safely remove dead units. Let's do that.
 
 ```python
 draw_topology(rigl_model, rankdir='TB')
@@ -353,7 +353,7 @@ draw_topology(compressed_rigl_model, rankdir='TB')
 
 
 # Visualizing the decision boundries
-Let's (yet again) use Andrej's code to visualize the decision boundries.
+Let's (yet again) use Andrej's code to visualize the decision boundaries.
 
 
 ```python
