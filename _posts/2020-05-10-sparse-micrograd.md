@@ -1,13 +1,12 @@
 ---
 layout: single
-title: "Sparse Networks with MicroGrad"
+title: "Implementing Sparse Networks with MicroGrad"
 tags: [python,ml]
 category: ml
 excerpt: "Implementing sparse networks using neurons as building blocks."
 ---
 <a href="https://colab.research.google.com/github/evcu/micrograd/blob/sparse/sparse-demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-# Sparse Networks with MicroGrad
 O lala, time passes fast under quarantine. It has been almost 3 weeks since Andrej Karpathy shared his super light-weight autograd library and me getting exciting about it. Roughly 2 years ago I had a similar mini-project and wrote about it [here](https://evcu.github.io/ml/autograd/). After seeing Micrograd and its simplicity I decided to spend some time on it.
 
 Andrej's implementation works on pure python and the speed is not a concern. I thought maybe we can accelerate it using sparsity :P. Just kidding...
