@@ -14,6 +14,8 @@ Andrej's implementation works on pure python and the speed is not a concern. I t
 
 I realized how easy it would be to implement sparse networks if the building blocks are neurons. It literally took me few hours to implement sparse networks and **RigL** algorithm. I think this is a great demonstration of the power of changing abstractions. The abstractions and tools we have influences our work/research greatly and maybe what we need is a paradigm shift to enable the next big jump in AI. I would vote for neurons as the future building blocks of Neural Networks. But arguing about this is not the goal of this notebook.
 
+![png](/assets/images/micrograd_sparse/output_19_0.png)
+
 ### Plan
 - Checkout Andrej's implementation of `Value` [here](https://github.com/evcu/micrograd/blob/sparse/micrograd/engine.py). This is the building block of the learning algorithm and it is the simplest autograd engine I've seen.
 - Checkout the [demo](https://github.com/evcu/micrograd/blob/sparse/demo.ipynb). At the end of this notebook, we would do the same experiment using sparse networks.
