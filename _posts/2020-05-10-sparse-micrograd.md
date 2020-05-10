@@ -8,86 +8,17 @@ excerpt: "Implementing sparse networks using neurons as building blocks."
 <a href="https://colab.research.google.com/github/evcu/micrograd/blob/sparse/sparse-demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 # Sparse Networks with MicroGrad
-O lala, time passes fast under quarantine. It has been almost 3 weeks since Andrej Karparty shared his super light-weight autograd library and me getting exciting about it. Roughly 2 years ago I had a similar mini-project and wrote about it [here](https://evcu.github.io/ml/autograd/). After seeing Micrograd and its simplicity I decided to spend some time on it.
+O lala, time passes fast under quarantine. It has been almost 3 weeks since Andrej Karpathy shared his super light-weight autograd library and me getting exciting about it. Roughly 2 years ago I had a similar mini-project and wrote about it [here](https://evcu.github.io/ml/autograd/). After seeing Micrograd and its simplicity I decided to spend some time on it.
 
 Andrej's implementation works on pure python and the speed is not a concern. I thought maybe we can accelerate it using sparsity :P. Just kidding...
 
-I realized how easy it would be to implement sparse networks if the building blocks are neurons. It litteraly took me few hours to implement sparse networks and **RigL** algorithm. I think this is a great demonstration of the power of changing abstractions. The abstractions and tools we have influences our work/research greatly and maybe what we need is a paradigm shift to enable the next big jump in AI. I would vote for neurons as the future building blocks of Neural Networks. But arguing about this is not the goal of this notebook.
+I realized how easy it would be to implement sparse networks if the building blocks are neurons. It literally took me few hours to implement sparse networks and **RigL** algorithm. I think this is a great demonstration of the power of changing abstractions. The abstractions and tools we have influences our work/research greatly and maybe what we need is a paradigm shift to enable the next big jump in AI. I would vote for neurons as the future building blocks of Neural Networks. But arguing about this is not the goal of this notebook.
 
 ### Plan
 - Checkout Andrej's implementation of `Value` [here](https://github.com/evcu/micrograd/blob/sparse/micrograd/engine.py). This is the building block of the learning algorithm and it is the simplest autograd engine I've seen.
 - Checkout the [demo](https://github.com/evcu/micrograd/blob/sparse/demo.ipynb). At the end of this notebook, we would do the same experiment using sparse networks.
 - We implement Sparse network (SparseMLP) which uses the SparseLayer which uses the SparseNeuron.
 - Finally we will train our network on a binary classification task. We will observe the failure of regular sparse training and we see how RigL can be used to improve performance considerably.
-
-
-
-```python
-#@title Imports, Helpers and Data Load
-from functools import partial
-import math
-import random
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.datasets import make_moons, make_blobs
-%matplotlib inline
-!rm -rf g_micrograd micrograd
-!git clone --single-branch --branch sparse https://github.com/evcu/micrograd.git g_micrograd
-!mv g_micrograd/micrograd ./
-from micrograd.engine import Value
-from micrograd.nn import Module
-from micrograd.rigl import Module
-# make up a dataset
-from graphviz import Digraph
-
-def draw_topology(model, format='svg', rankdir='LR'):
-    """
-    format: png | svg | ...
-    rankdir: TB (top to bottom graph) | LR (left to right)
-    """
-    assert rankdir in ['LR', 'TB']
-    dot = Digraph(format=format, graph_attr={'rankdir': rankdir}) #, node_attr={'rankdir': 'TB'})
-    with dot.subgraph(name=f'cluster_inp') as c:
-      c.node(name='0_1', label = '0_1' , shape='record')
-      c.node(name='0_0', label = '0_0' , shape='record')
-    for i, layer in enumerate(model.layers):
-      for j, neuron in enumerate(layer.neurons):
-        with dot.subgraph(name=f'cluster_{i}') as c:
-          c_node = f'{i+1}_{j}'
-          c.node(name=c_node, label = c_node , shape='record')
-          for incoming_neuron_id in neuron.w.keys():
-            from_node = f'{i}_{incoming_neuron_id}'
-            c.edge(from_node, c_node)
-
-    return dot
-
-X, y = make_moons(n_samples=100, noise=0.1)
-
-y = y*2 - 1 # make y be -1 or 1
-# visualize in 2D
-plt.figure(figsize=(5,5))
-plt.scatter(X[:,0], X[:,1], c=y, s=20, cmap='jet')
-```
-
-    Cloning into 'g_micrograd'...
-    remote: Enumerating objects: 156, done.[K
-    remote: Counting objects: 100% (156/156), done.[K
-    remote: Compressing objects: 100% (101/101), done.[K
-    remote: Total 156 (delta 81), reused 118 (delta 47), pack-reused 0[K
-    Receiving objects: 100% (156/156), 346.16 KiB | 639.00 KiB/s, done.
-    Resolving deltas: 100% (81/81), done.
-
-
-
-
-
-    <matplotlib.collections.PathCollection at 0x7f669cb9d080>
-
-
-
-
-![png](/assets/images/micrograd_sparse/output_2_2.png)
-
 
 ### Defining Sparse Network
 Neurons in a layer usually connects to the every neuron in the previous layer. This is because how we define them. We call such networks **dense** (although I would argue they are sparse, too since they are not connecting bunch of other neurons in other layers.).
@@ -143,7 +74,6 @@ Next we define `SparseLayer`, `SparseMLP` and the `loss` function. Nothing speci
 
 
 ```python
-#@title SparseLayer, SparseML implementation and the loss
 class SparseLayer(Module):
 
     def __init__(self, nin, nout, sparsity=0, **kwargs):
@@ -216,9 +146,9 @@ Let's create this model and train it.
 ```python
 np.random.seed(1337)
 random.seed(1337)
-model = SparseMLP(nin=2, nouts=[16, 16, 1], sparsities=[0.,0.9,0.8]) # 2-layer neural network
-print(model)
-print("number of parameters", len(model.parameters()))
+static_sparse_model = SparseMLP(nin=2, nouts=[16, 16, 1], sparsities=[0.,0.9,0.8]) # 2-layer neural network
+print(static_sparse_model)
+print("number of parameters", len(static_sparse_model.parameters()))
 ```
 
     MLP of [
@@ -231,20 +161,19 @@ print("number of parameters", len(model.parameters()))
 
 
 ```python
-# initialize a model
 TRAIN_STEPS = 400
 for k in range(TRAIN_STEPS):
 
     # forward
-    total_loss, acc = loss(model)
+    total_loss, acc = loss(static_sparse_model)
 
     # backward
-    model.zero_grad()
+    static_sparse_model.zero_grad()
     total_loss.backward()
 
     # update (sgd)
     learning_rate = 1 - 0.9*k/TRAIN_STEPS
-    for p in model.parameters():
+    for p in static_sparse_model.parameters():
         p.data -= learning_rate * p.grad
 
     if k % 20 == 0:
@@ -254,25 +183,25 @@ print(f"step {k} loss {total_loss.data}, accuracy {acc*100}%")
 
     step 0 loss 0.9999118995994747, accuracy 50.0%
     step 20 loss 0.9501034046836242, accuracy 50.0%
-    step 40 loss 0.3029776283757717, accuracy 87.0%
+    step 40 loss 0.3029776283757716, accuracy 87.0%
     step 60 loss 0.297169433748757, accuracy 87.0%
     step 80 loss 0.29289542954897096, accuracy 88.0%
     step 100 loss 0.2931921490672611, accuracy 87.0%
-    step 120 loss 0.2989848931028507, accuracy 88.0%
-    step 140 loss 0.29119501442717843, accuracy 87.0%
-    step 160 loss 0.29066315530929504, accuracy 88.0%
-    step 180 loss 0.2899413473514983, accuracy 88.0%
-    step 200 loss 0.29011181298721417, accuracy 88.0%
+    step 120 loss 0.2989848931028508, accuracy 88.0%
+    step 140 loss 0.2911950144271784, accuracy 87.0%
+    step 160 loss 0.29066315530929493, accuracy 88.0%
+    step 180 loss 0.2899413473514984, accuracy 88.0%
+    step 200 loss 0.29011181298721433, accuracy 88.0%
     step 220 loss 0.2897383548597768, accuracy 88.0%
-    step 240 loss 0.28930190046206183, accuracy 88.0%
-    step 260 loss 0.2886158754721535, accuracy 87.0%
+    step 240 loss 0.289301900462062, accuracy 88.0%
+    step 260 loss 0.2886158754721536, accuracy 87.0%
     step 280 loss 0.2881950427716646, accuracy 88.0%
     step 300 loss 0.28796501931513896, accuracy 87.0%
     step 320 loss 0.28737672236751133, accuracy 88.0%
-    step 340 loss 0.2875214701885475, accuracy 88.0%
-    step 360 loss 0.2868703953378429, accuracy 88.0%
-    step 380 loss 0.2867664506170351, accuracy 88.0%
-    step 399 loss 0.2865402397151321, accuracy 88.0%
+    step 340 loss 0.28752147018854757, accuracy 88.0%
+    step 360 loss 0.28687039533784287, accuracy 88.0%
+    step 380 loss 0.28676645061703504, accuracy 88.0%
+    step 399 loss 0.28654023971513226, accuracy 88.0%
 
 
 # Difficulty of Training Sparse Networks.
@@ -337,71 +266,57 @@ def rigl_update_layer(model, update_fraction=0.3):
 ```python
 np.random.seed(1337)
 random.seed(1337)
-model = SparseMLP(2, [16, 16, 1], [0.,0.9,0.8]) # 2-layer neural network
-print(model)
-print("number of parameters", len(model.parameters()))
-```
-
-    MLP of [
-    Layer of [ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2)]
-    Layer of [ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2), ReLUNeuron(2)]
-    Layer of [LinearNeuron(4)]
-    ]
-    number of parameters 101
-
-
-
-```python
+rigl_model = SparseMLP(2, [16, 16, 1], [0., 0.9, 0.8])
 N_TOTAL = 400
 for k in range(N_TOTAL):    
     # forward
-    total_loss, acc = loss(model)
+    total_loss, acc = loss(rigl_model)
 
     # backward
-    model.zero_grad()
+    rigl_model.zero_grad()
     total_loss.backward()
 
     # update (sgd)
     learning_rate = 1 - 0.9*k/N_TOTAL
-    for p in model.parameters():
+    for p in rigl_model.parameters():
         p.data -= learning_rate * p.grad
 
     if k % 20 == 0:
         print(f"step {k} loss {total_loss.data}, accuracy {acc*100}%")
-        if k != 0: rigl_update_layer(model, update_fraction=learning_rate*0.3)
+        if k != 0: rigl_update_layer(rigl_model, update_fraction=learning_rate*0.3)
 ```
 
     step 0 loss 0.9999118995994747, accuracy 50.0%
     step 20 loss 0.9501034046836242, accuracy 50.0%
-    step 40 loss 0.3100530789154368, accuracy 86.0%
-    step 60 loss 0.2943928150384549, accuracy 87.0%
+    step 40 loss 0.31005307891543676, accuracy 86.0%
+    step 60 loss 0.29439281503845477, accuracy 87.0%
     step 80 loss 0.29081179132781054, accuracy 88.0%
-    step 100 loss 0.28761794723703316, accuracy 88.0%
-    step 120 loss 0.2844175041217566, accuracy 86.0%
-    step 140 loss 0.3083420441792059, accuracy 85.0%
-    step 160 loss 0.27962001315071733, accuracy 88.0%
-    step 180 loss 0.2701977359724511, accuracy 89.0%
-    step 200 loss 0.2548698443690212, accuracy 90.0%
-    step 220 loss 0.25193384339378755, accuracy 90.0%
-    step 240 loss 0.14442011238413374, accuracy 96.0%
-    step 260 loss 0.22868415294455952, accuracy 96.0%
-    step 280 loss 0.06459693547356632, accuracy 97.0%
-    step 300 loss 0.06183151633336271, accuracy 100.0%
-    step 320 loss 0.04567886755653706, accuracy 99.0%
-    step 340 loss 0.041562365614153496, accuracy 100.0%
-    step 360 loss 0.03462738757482676, accuracy 100.0%
-    step 380 loss 0.03115376154018684, accuracy 100.0%
+    step 100 loss 0.2876179472370331, accuracy 88.0%
+    step 120 loss 0.2844175041217564, accuracy 86.0%
+    step 140 loss 0.3083420441792058, accuracy 85.0%
+    step 160 loss 0.2796200131507172, accuracy 88.0%
+    step 180 loss 0.270197735972451, accuracy 89.0%
+    step 200 loss 0.2548698443690211, accuracy 90.0%
+    step 220 loss 0.2519338433937867, accuracy 90.0%
+    step 240 loss 0.14442011238413255, accuracy 96.0%
+    step 260 loss 0.22868415294455974, accuracy 96.0%
+    step 280 loss 0.06459693547356511, accuracy 97.0%
+    step 300 loss 0.061831516333362764, accuracy 100.0%
+    step 320 loss 0.04567886755653798, accuracy 99.0%
+    step 340 loss 0.04156236561415438, accuracy 100.0%
+    step 360 loss 0.03462738757482692, accuracy 100.0%
+    step 380 loss 0.031153761540187855, accuracy 100.0%
 
 
 ## Results
-RigL obtains 0.003 loss with 100% acc vs static training stucks  at 0.287 with 88% acc. Visualizing the connectivity of the model after the RigL training reveals interesting insights. We see that the available connections are used by few important neurons and many neurons internal neurons are discarded.
+RigL obtains 0.031 loss with 100% acc vs static training stucks  at 0.287 with 88% acc. Visualizing the connectivity of the model after the RigL training reveals interesting insights. We see that the available connections are used by few important neurons and many neurons internal neurons are discarded.
 
 For example below neurons `2_3` and `2_1` has the most of the connections of the second layer. Other active neurons (`2_4` and `2_2`) has only 1 incoming connections. All the remaining neurons are dead, which means they don't have any incoming or outgoing connections, therefore they can't effect the output. We can safely remove such dead units. Let's do that.
 
 
 
 ```python
-draw_topology(model, rankdir='TB')
+draw_topology(rigl_model, rankdir='TB')
 ```
 
 
@@ -417,9 +332,9 @@ Removing dead units we are left with a compact 10,4,1 (compared to 16,16,1) arch
 
 ```python
 from micrograd.rigl import strip_deadneurons     
-new_model = strip_deadneurons(model)
-print(new_model)
-draw_topology(new_model, rankdir='TB')
+compressed_rigl_model = strip_deadneurons(rigl_model)
+print(compressed_rigl_model)
+draw_topology(compressed_rigl_model, rankdir='TB')
 ```
 
     MLP of [
@@ -451,13 +366,13 @@ xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
 Xmesh = np.c_[xx.ravel(), yy.ravel()]
 Zs = []
 inputs = [list(map(Value, xrow)) for xrow in Xmesh]
-for m in [model, new_model]:
+for m in [static_sparse_model, rigl_model, compressed_rigl_model]:
   scores = list(map(m, inputs))
   Z = np.array([s.data > 0 for s in scores])
   Zs.append(Z.reshape(xx.shape))
 
-fig, axs = plt.subplots(1, 2, figsize=(10,5))
-for i, key in enumerate(['model', 'Compressed model']):
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+for i, key in enumerate(['Static model', 'RigL model', 'Compressed RigL model']):
   plt.axes(axs[i])
   plt.contourf(xx, yy, Zs[i], cmap=plt.cm.Spectral, alpha=0.8)
   plt.scatter(X[:, 0], X[:, 1], c=y, s=40, cmap=plt.cm.Spectral)
