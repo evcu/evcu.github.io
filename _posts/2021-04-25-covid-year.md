@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "The unexpected covid year"
-tags: [comments,ml,personal]
-category: ml
-excerpt: "and what I learned during this disruption"
+tags: [comments,personal]
+category: personal
+excerpt: "and what I learned during the disruption"
 ---
 [![video](http://img.youtube.com/vi/KvmCxxTG3fM/0.jpg)](http://www.youtube.com/watch?v=KvmCxxTG3fM "video")
 
