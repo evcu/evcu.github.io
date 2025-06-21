@@ -8,6 +8,7 @@
 # Site Settings
 locale                   : "en"
 title                    : "evcu"
+theme                    : minimal-mistakes-jekyll
 title_separator          : "|"
 name                     : "Utku Evci"
 description              : "Personal webpage of a guy from Turkey named Utku Evci. Recently @Montreal, 2018 Google AI Residency Program."
