@@ -8,7 +8,6 @@
 # Site Settings
 locale                   : "en"
 title                    : "evcu"
-theme                    : "minimal-mistakes-jekyll"
 title_separator          : "|"
 name                     : "Utku Evci"
 description              : "Personal webpage of a guy from Turkey named Utku Evci. Recently @Montreal, 2018 Google AI Residency Program."
@@ -18,6 +17,7 @@ repository               : "evcu/evcu.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 150
+remote_theme             : "mmistakes/minimal-mistakes@4.27.1"
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
@@ -181,9 +181,9 @@ paginate: 5 # amount of posts to show
 paginate_path: /page:num/
 timezone: America/New_York
 
-
 # Plugins
 gems:
+  - jekyll-include-cache
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
