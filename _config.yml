@@ -8,7 +8,7 @@
 # Site Settings
 locale                   : "en"
 title                    : "evcu"
-theme                    : minimal-mistakes-jekyll
+theme                    : "minimal-mistakes-jekyll"
 title_separator          : "|"
 name                     : "Utku Evci"
 description              : "Personal webpage of a guy from Turkey named Utku Evci. Recently @Montreal, 2018 Google AI Residency Program."
@@ -101,7 +101,7 @@ author:
   linkedin         : utkuevci
   pinterest        :
   soundcloud       :
-  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
+  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            :
   tumblr           :
   twitter          :
