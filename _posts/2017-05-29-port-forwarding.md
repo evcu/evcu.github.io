@@ -17,7 +17,7 @@ When you run
 ```
 jupyter notebook
 ```
-a notebook is created on the default port, which is `http://localhost:8888/` on my Mac. One can use `--port ****` flag to specify the port of the local host. If we want to run the notebook on a server through ssh, we can use `Local Forwarding` which is the `-L` flag. Lets assume we have a server named  `hostOne` defined in `~/.ssh/config/`. For more information about how to do that you can check out my [ssh notes](https://evcu.github.io/notes/ssh-setup-notes/)).
+a notebook is created on the default port, which is `https://localhost:8888/` on my Mac. One can use `--port ****` flag to specify the port of the local host. If we want to run the notebook on a server through ssh, we can use `Local Forwarding` which is the `-L` flag. Lets assume we have a server named  `hostOne` defined in `~/.ssh/config/`. For more information about how to do that you can check out my [ssh notes](https://evcu.github.io/notes/ssh-setup-notes/)).
 
 ```
 ssh -L 8000:localhost:8888 hostOne
@@ -67,7 +67,7 @@ When it is completed we have the log named `slurm-953167.out` with output simila
 [I 17:41:05.035 NotebookApp] Writing notebook server cookie secret to /state/partition1/job-953167/jupyter/notebook_cookie_secret
 [I 17:41:06.051 NotebookApp] Serving notebooks from local directory: /home/ue225
 [I 17:41:06.052 NotebookApp] 0 active kernels 
-[I 17:41:06.052 NotebookApp] The Jupyter Notebook is running at: http://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11
+[I 17:41:06.052 NotebookApp] The Jupyter Notebook is running at: https://localhost:8765/?token=33703785bdb10cadf4ab0645002ab373e8e966b114f05c11
 [I 17:41:06.052 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
 

@@ -12,7 +12,7 @@ feature_row:
 #    excerpt: Every day input from NYC
   - image_path: assets/images/blogimg/ege7d.jpg
     title: "7 Days in Ege"
-    url: http://ege7d.tumblr.com/
+    url: https://ege7d.tumblr.com/
     excerpt: Notes from 7day motorbike trip from Istanbul to Izmir
   - image_path: assets/images/blogimg/evcuwp.jpg
     title: "Old Webpage"
@@ -20,15 +20,15 @@ feature_row:
     excerpt: Some pictures and old personal page
   - image_path: assets/images/blogimg/justp.jpg
     title: "Just Panaromas"
-    url: http://justpanaroma.tumblr.com/
+    url: https://justpanaroma.tumblr.com/
     excerpt: Only fascinating panoramas from various travels.
   - image_path: assets/images/blogimg/fromsing.jpg
     title: "From Singapore"
-    url: http://fromsingapore.tumblr.com/
+    url: https://fromsingapore.tumblr.com/
     excerpt: Trips during Spring 2016 to various Souteastern Asia Destinations
   - image_path: assets/images/blogimg/runcity.png
     title: "Running Cities"
-    url: http://runningcities.tumblr.com/
+    url: https://runningcities.tumblr.com/
     excerpt: A runner blog about running as a tourist.
   - image_path: assets/images/blogimg/ibeen.png
     title: "Places I've been"

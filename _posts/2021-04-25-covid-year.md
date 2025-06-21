@@ -5,7 +5,7 @@ tags: [comments,personal]
 category: personal
 excerpt: "and what I learned during the disruption"
 ---
-[![video](http://img.youtube.com/vi/KvmCxxTG3fM/0.jpg)](http://www.youtube.com/watch?v=KvmCxxTG3fM "video")
+[![video](https://img.youtube.com/vi/KvmCxxTG3fM/0.jpg)](https://www.youtube.com/watch?v=KvmCxxTG3fM "video")
 
 I will try to keep this one short. I guess I want to mark the time during my last night in Kas; a beautiful town by the Mediterranean sea in southern Turkey. The date is 25th April 2021. I left Canada and came to Turkey in August 2020, roughly 4.5 years after I left the homeland for `fame and fortune`. It was the the first covid summer and since I left Canada I did and learned bunch of new things which wouldn't have happened if things were normal. The never ending summer after spending 5 months in isolation: worse year becoming one of the best. This is a note to the future. Not for work directly, but for life.
 

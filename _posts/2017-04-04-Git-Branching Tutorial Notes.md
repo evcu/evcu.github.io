@@ -5,7 +5,7 @@ tags: [tutorial,basics,git]
 category: notes
 excerpt: "useful git commands to do what you need to do"
 ---
-I tried this awesome tutorial [`Learn Git Branching`](http://learngitbranching.js.org/) and wanted to write down this cheat sheet. Git has a lot of commands and one can easily forget some of them. So lets write them down! 
+I tried this awesome tutorial [`Learn Git Branching`](https://learngitbranching.js.org/) and wanted to write down this cheat sheet. Git has a lot of commands and one can easily forget some of them. So lets write them down! 
 
 - `git branch <b_name> [ref]`: creates branch at [ref]. [ref] is optional and can be commit,hash, branch name or tag. If ommited it is __HEAD__
 - `git checkout <commit_hash>` : moves _HEAD_, may cause _detached HEAD_

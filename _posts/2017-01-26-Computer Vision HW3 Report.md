@@ -8,7 +8,7 @@ excerpt: "Training various Conv-Nets for the Trafic-Sign-Detection-Benchmark and
 
 ## Traffic Sign Detection Kaggle Competition
 
-In the last assignment of Computer Vision Class at 2016 Fall. We participated in a Kaggle competition with the rest of the class on the [The German Traffic Sign Recognition Benchmark](http://benchmark.ini.rub.de/?section=gtsrb&subsection=news). The objective was to produce a model that gives the highest possible accuracy on the test portion of this dataset. 
+In the last assignment of Computer Vision Class at 2016 Fall. We participated in a Kaggle competition with the rest of the class on the [The German Traffic Sign Recognition Benchmark](https://benchmark.ini.rub.de/?section=gtsrb&subsection=news). The objective was to produce a model that gives the highest possible accuracy on the test portion of this dataset. 
 
 The benchmark is well researched and there are kwown architectures that gets below 1 percent error. I share in this post my experience with different Conv-Net architectures and Torch on HPC of NYU. 
 
